@@ -18,7 +18,9 @@ class ExecutePrintDiagonal
                 Console.Write("{0}", i);
             }
             if (i < 100)
-                Console.Write(" ");      
+                Console.Write(" "); 
+            else
+                Console.Write("\n"); 
         }
     }
 }
