@@ -15,15 +15,15 @@ class Program
 
         if (lastDigit > 5)
         {
-            Console.Write("and is greater than 5");
+            Console.WriteLine("and is greater than 5");
         }
         else if (lastDigit == 0)
         {
-            Console.Write("and is 0");
+            Console.WriteLine("and is 0");
         }
         else
         {
-            Console.Write("and is less than 6 and not 0");
+            Console.WriteLine("and is less than 6 and not 0");
         }
     }
 }
