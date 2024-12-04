@@ -12,7 +12,7 @@ class Program
             }
             else
             {
-                Console.Write("{0}", i.ToString("00"));
+                Console.Write("{0}\n", i.ToString("00"));
             }
         }
     }
