@@ -9,6 +9,7 @@ class Number
         {
             lastDigit = lastDigit * -1;
         }
+        Console.Write(lastDigit);
         return lastDigit;
     }
 }
