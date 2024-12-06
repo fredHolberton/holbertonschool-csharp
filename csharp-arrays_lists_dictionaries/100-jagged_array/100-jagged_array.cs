@@ -14,7 +14,7 @@ class Program
             for (int j = 0; j < jaggedArray[i].Length; j++)
             {
                 Console.Write(jaggedArray[i][j]);
-                if (j != jaggedArray[i].Length)
+                if (j != jaggedArray[i].Length - 1)
                     Console.Write(" ");
             }
             Console.WriteLine();
