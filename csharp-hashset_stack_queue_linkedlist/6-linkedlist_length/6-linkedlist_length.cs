@@ -7,10 +7,8 @@ class LList
    {
         int numberOfItem = 0;
 
-        for (LinkedListNode<int> node = myLList.First; node != null; node=node.Next)
-        {
-            numberOfItem++;
-        }
+        foreach (int item in myLList)
+            numberOfItem++;  
         
         return numberOfItem;
    } 
