@@ -20,10 +20,11 @@ class LList
                 }
                 if (current.Next != null)
                     current = current.Next;
+                
             }
             
             if (current == null)
-            current = myLList.AddLast(n);
+                current = myLList.AddLast(n);
         }
         else
             current = myLList.AddLast(n);
