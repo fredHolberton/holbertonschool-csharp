@@ -24,5 +24,5 @@ public struct Dog
         this.rating = rating;
     }
 
-    public override string ToString() => $"Dog name: {name}\nAge: {age.ToString("G", CultureInfo.CreateSpecificCulture("en-US"))}\nOwner: {owner}\nRating: {rating}";
+    public override string ToString() => $"Dog Name: {name}\nAge: {age.ToString("G", CultureInfo.CreateSpecificCulture("en-US"))}\nOwner: {owner}\nRating: {rating}";
 }
