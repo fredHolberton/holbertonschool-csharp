@@ -8,7 +8,7 @@ namespace Enemies
         /// Private field for Zombie.health.
         private int health;
         /// Private field for Zombie.name
-        private string _name = "No name";
+        private string name = "No name";
 
         /// <summary>Initializes a new instance of the <see cref="Zombie"/> class.</summary>
         public Zombie()
