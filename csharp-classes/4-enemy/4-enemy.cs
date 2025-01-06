@@ -35,7 +35,15 @@ namespace Enemies
             } 
             set
             {
-                name = value;
+                if (value == string.Empty)
+                {
+                    this.name = "No name";
+                }
+                else
+                {
+                    name = value;
+                }
+                
             }
         }
 
