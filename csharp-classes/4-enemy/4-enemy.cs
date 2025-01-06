@@ -8,7 +8,7 @@ namespace Enemies
         /// Private field for Zombie.health.
         private int health;
         /// Private field for Zombie.name
-        private string name = "No name";
+        private string _name = "No name";
 
         /// <summary>Initializes a new instance of the <see cref="Zombie"/> class.</summary>
         public Zombie()
@@ -29,8 +29,14 @@ namespace Enemies
         /// <summary>Gets or sets the name of the Zombie.</summary>
         public string Name 
         { 
-            get => name; 
-            set => name = value;
+            get
+            {
+                return name;
+            } 
+            set
+            {
+                name = value;
+            }
         }
 
         /// <summary>Function that Return health value.</summary>
