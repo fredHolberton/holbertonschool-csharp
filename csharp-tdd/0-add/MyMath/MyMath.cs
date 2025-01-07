@@ -1,11 +1,14 @@
-﻿namespace MyMath;
+﻿using System;
 
-/// <summary>This is the Operations class within MyMath namespace.</summary>
-public class Operations
+namespace MyMath
 {
-    /// <summary>Add the number a to the number b and return result</summary>
-    public static int Add(int a, int b)
+    /// <summary>This is the Operations class within MyMath namespace.</summary>
+    public class Operations
     {
-        return a + b;
+        /// <summary>Add the number a to the number b and return result</summary>
+        public static int Add(int a, int b)
+        {
+            return a + b;
+        }
     }
 }
