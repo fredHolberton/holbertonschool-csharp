@@ -9,14 +9,14 @@ namespace MyMath.Tests
         public void TestMatrixNonNullEtNNotZero()
         {
             // Arrange
-            int[,] maMatrix = new int[3, 3] { { 10, 15, 20 }, { 20, 30, 40 }, { 30, 60, 80 } };
+            int[,] maMatrix = new int[,] { { 10, 15, 20 }, { 20, 30, 40 }, { 30, 60, 80 } };
             int n = 5;
 
             // Act
             int[,] output = Matrix.Divide(maMatrix, n);
 
             // Assert
-            Assert.AreEqual(new int[3, 3] { { 2, 3, 4 }, { 4, 6, 8 }, { 6, 12, 16 } }, output);
+            Assert.AreEqual(new int[,] { { 2, 3, 4 }, { 4, 6, 8 }, { 6, 12, 16 } }, output);
         }
 
         // Test when matrix is null and n not zero.
@@ -39,7 +39,7 @@ namespace MyMath.Tests
         public void TestMatrixNotNullEtNIsZero()
         {
             // Arrange
-            int[,] maMatrix = new int[3, 3] { { 10, 15, 20 }, { 20, 30, 40 }, { 30, 60, 80 } };
+            int[,] maMatrix = new int[,] { { 10, 15, 20 }, { 20, 30, 40 }, { 30, 60, 80 } };
             int n = 0;
 
             // Act
@@ -69,14 +69,14 @@ namespace MyMath.Tests
         public void TestMatrixNotNullEtNIsNegative()
         {
             // Arrange
-            int[,] maMatrix = new int[3, 3] { { 10, 15, 20 }, { 20, 30, 40 }, { 30, 60, 80 } };
+            int[,] maMatrix = new int[,] { { 10, 15, 20 }, { 20, 30, 40 }, { 30, 60, 80 } };
             int n = -5;
 
             // Act
             int[,] output = Matrix.Divide(maMatrix, n);
 
             // Assert
-           Assert.AreEqual(new int[3, 3] { { -2, -3, -4 }, { -4, -6, -8 }, { -6, -12, -16 } }, output);
+           Assert.AreEqual(new int[,] { { -2, -3, -4 }, { -4, -6, -8 }, { -6, -12, -16 } }, output);
         }
     }
 }
