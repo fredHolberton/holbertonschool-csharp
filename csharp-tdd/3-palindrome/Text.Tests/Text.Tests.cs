@@ -18,10 +18,10 @@ namespace Text.Tests
             string s = String.Empty;
 
             // Act
-            int output = Str.IsPalindrome(s);
+            bool output = Str.IsPalindrome(s);
 
             // Assert
-            Assert.AreEqual(True, output);
+            Assert.True(output);
         }
 
         /// <summary>Test when only lower string.</summary>
@@ -32,10 +32,10 @@ namespace Text.Tests
             string s = "level";
 
             // Act
-            int output = Str.IsPalindrome(s);
+            bool output = Str.IsPalindrome(s);
 
             // Assert
-            Assert.AreEqual(True, output);
+            Assert.True(output);
         }
 
         /// <summary>Test when lower and Upper string.</summary>
@@ -46,10 +46,10 @@ namespace Text.Tests
             string s = "Racecar";
 
             // Act
-            int output = Str.IsPalindrome(s);
+            bool output = Str.IsPalindrome(s);
 
             // Assert
-            Assert.AreEqual(True, output);
+            Assert.True(output);
         }
 
         /// <summary>Test when string with ponctuation and spaces.</summary>
@@ -60,10 +60,10 @@ namespace Text.Tests
             string s = "A man, a plan, a canal: Panama.";
 
             // Act
-            int output = Str.IsPalindrome(s);
+            bool output = Str.IsPalindrome(s);
 
             // Assert
-            Assert.AreEqual(True, output);
+            Assert.True(output);
         }
 
         /// <summary>Test when string that is not a palindrome.</summary>
@@ -74,10 +74,10 @@ namespace Text.Tests
             string s = "Bonjour";
 
             // Act
-            int output = Str.IsPalindrome(s);
+            bool output = Str.IsPalindrome(s);
 
             // Assert
-            Assert.AreEqual(False, output);
+            Assert.False(output);
         }
     }
 }
