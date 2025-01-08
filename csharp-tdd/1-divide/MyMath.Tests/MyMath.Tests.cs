@@ -31,7 +31,7 @@ namespace MyMath.Tests
             int[,] output = Matrix.Divide(maMatrix, n);
 
             // Assert
-            Assert.AreEqual(null, output);
+            Assert.IsNull(output);
         }
 
         /// <summary>Test when matrix not null and n is zero.</summary>
@@ -46,7 +46,7 @@ namespace MyMath.Tests
             int[,] output = Matrix.Divide(maMatrix, n);
 
             // Assert
-            Assert.AreEqual(null, output);
+            Assert.IsNull(output);
         }
 
         /// <summary>Test when matrix is null and n is zero.</summary>
@@ -61,7 +61,7 @@ namespace MyMath.Tests
             int[,] output = Matrix.Divide(maMatrix, n);
 
             // Assert
-            Assert.AreEqual(null, output);
+            Assert.IsNull(output);
         }
     }
 }
