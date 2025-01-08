@@ -49,7 +49,7 @@ namespace MyMath.Tests
             Assert.IsNull(output);
         }
 
-        /// <summary>Test when matrix is null and n is zero.</summary>
+        /// <summary>Test when matrix is empty and n is zero.</summary>
         [Test]
         public void TestMatrixVideEtNNotZero()
         {
@@ -62,6 +62,21 @@ namespace MyMath.Tests
 
             // Assert
             Assert.AreEqual(new int[3, 3] { { 0, 0, 0 }, { 0, 0, 0 }, { 0, 0, 0 } }, output);
+        }
+
+        /// <summary>Test when matrix is null and n is zero.</summary>
+        [Test]
+        public void TestMatrixIsNullEtNIsZero()
+        {
+            // Arrange
+            int[,] maMatrix = null;
+            int n = 0;
+
+            // Act
+            int[,] output = Matrix.Divide(maMatrix, n);
+
+            // Assert
+           Assert.IsNull(output);
         }
     }
 }
