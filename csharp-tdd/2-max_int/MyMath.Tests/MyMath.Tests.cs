@@ -88,7 +88,7 @@ namespace MyMath.Tests
             int output = Operations.Max(nums);
 
             // Assert
-            Assert.IsNull(output);
+            Assert.AreEqual(0, output);
         }
     }
 }
