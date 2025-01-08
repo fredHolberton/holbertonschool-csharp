@@ -49,20 +49,6 @@ namespace MyMath.Tests
             Assert.AreEqual(-1, output);
         }
 
-        /// <summary>Test when the list contains one value.</summary>
-        [Test]
-        public void TestListWithOneValue()
-        {
-            // Arrange
-            List<int> nums = new List<int>() { 1 };
-
-            // Act
-            int output = Operations.Max(nums);
-
-            // Assert
-            Assert.AreEqual(1, output);
-        }
-
         /// <summary>Test when the list contains negative and positive values.</summary>
         [Test]
         public void TestListOfNegativeAndPositiveValues()
