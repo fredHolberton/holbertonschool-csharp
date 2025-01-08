@@ -1,13 +1,13 @@
-using system;
 using NUnit.Framework;
+using MyMath;
 
 namespace MyMath.Tests
 {
-    // Class for testing Matrix.Divide function.
+    /// <summary>Class for testing Matrix.Divide function.</summary>
     [TestFixture]
     public class DivideTests
     {
-        // Test when matrix is not null and n not zero.
+        /// <summary>Test when matrix is not null and n not zero.</summary>
         [Test]
         public void TestMatrixNonNullEtNNotZero()
         {
@@ -22,7 +22,7 @@ namespace MyMath.Tests
             Assert.AreEqual(new int[,] { { 2, 3, 4 }, { 4, 6, 8 }, { 6, 12, 16 } }, output);
         }
 
-        // Test when matrix is null and n not zero.
+        /// <summary>Test when matrix is null and n not zero.</summary>
         [Test]
         public void TestMatrixIsNullEtNNotZero()
         {
@@ -37,7 +37,7 @@ namespace MyMath.Tests
             Assert.IsNull(output);
         }
 
-        // Test when matrix not null and n is zero.
+        //Test when matrix not null and n is zero.
         [Test]
         public void TestMatrixNotNullEtNIsZero()
         {
