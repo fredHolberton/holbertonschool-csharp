@@ -1,3 +1,6 @@
+using system;
+using NUnit.Framework;
+
 namespace MyMath.Tests
 {
     // Class for testing Matrix.Divide function.
