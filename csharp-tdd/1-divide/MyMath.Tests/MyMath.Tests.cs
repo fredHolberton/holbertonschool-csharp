@@ -1,10 +1,10 @@
 namespace MyMath.Tests
 {
-    /// <summary>Class for testing Matrix.Divide function.</summary>
+    // Class for testing Matrix.Divide function.
     [TestFixture]
     public class DivideTests
     {
-        /// <summary>Test when matrix is not null and n not zero.</summary>
+        // Test when matrix is not null and n not zero.
         [Test]
         public void TestMatrixNonNullEtNNotZero()
         {
@@ -19,7 +19,7 @@ namespace MyMath.Tests
             Assert.AreEqual(new int[3, 3] { { 2, 3, 4 }, { 4, 6, 8 }, { 6, 12, 16 } }, output);
         }
 
-        /// <summary>Test when matrix is null and n not zero.</summary>
+        // Test when matrix is null and n not zero.
         [Test]
         public void TestMatrixIsNullEtNNotZero()
         {
@@ -34,7 +34,7 @@ namespace MyMath.Tests
             Assert.IsNull(output);
         }
 
-        /// <summary>Test when matrix not null and n is zero.</summary>
+        // Test when matrix not null and n is zero.
         [Test]
         public void TestMatrixNotNullEtNIsZero()
         {
@@ -49,7 +49,7 @@ namespace MyMath.Tests
             Assert.IsNull(output);
         }
 
-        /// <summary>Test when matrix is empty and n is zero.</summary>
+        // Test when matrix is empty and n is zero.
         [Test]
         public void TestMatrixVideEtNNotZero()
         {
@@ -64,7 +64,7 @@ namespace MyMath.Tests
             Assert.AreEqual(new int[3, 3] { { 0, 0, 0 }, { 0, 0, 0 }, { 0, 0, 0 } }, output);
         }
 
-        /// <summary>Test when matrix is null and n is zero.</summary>
+        // Test when matrix is null and n is zero.
         [Test]
         public void TestMatrixIsNullEtNIsZero()
         {
@@ -77,6 +77,21 @@ namespace MyMath.Tests
 
             // Assert
            Assert.IsNull(output);
+        }
+
+        // Test when matrix is not null and n is negative.
+        [Test]
+        public void TestMatrixNotNullEtNIsNegative()
+        {
+            // Arrange
+            int[,] maMatrix = new int[3, 3] { { 10, 15, 20 }, { 20, 30, 40 }, { 30, 60, 80 } };
+            int n = -5;
+
+            // Act
+            int[,] output = Matrix.Divide(maMatrix, n);
+
+            // Assert
+           Assert.AreEqual(new int[3, 3] { { -2, -3, -4 }, { -4, -6, -8 }, { -6, -12, -16 } }, output);
         }
     }
 }
