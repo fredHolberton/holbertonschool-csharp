@@ -12,7 +12,7 @@ namespace MyMath.Tests
         public void TestListOfPositiveValues()
         {
             // Arrange
-            List<int> nums = new List<int> { 3, 8, 1 };
+            List<int> nums = new List<int>() { 3, 8, 1 };
 
             // Act
             int output = Operations.Max(nums);
