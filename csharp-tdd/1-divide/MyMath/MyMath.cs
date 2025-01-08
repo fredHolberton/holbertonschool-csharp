@@ -8,7 +8,7 @@ namespace MyMath
         /// <summary>Returns a new matrix containing divided elements.</summary>
         public static int[,] Divide(int[,] matrix, int num)
         {
-            if (matrix is null)
+            if (matrix == null)
             {
                 return null;
             }
@@ -32,10 +32,6 @@ namespace MyMath
                 return null;
             }
             
-            catch(NullReferenceException)
-            {
-                return null;
-            }
         }
     }
 }
