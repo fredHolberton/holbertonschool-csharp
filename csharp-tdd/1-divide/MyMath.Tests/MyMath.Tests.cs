@@ -51,17 +51,17 @@ namespace MyMath.Tests
 
         /// <summary>Test when matrix is null and n is zero.</summary>
         [Test]
-        public void TestMatrixIsNullEtNIsZero()
+        public void TestMatrixVideEtNNotZero()
         {
             // Arrange
-            int[,] maMatrix = null;
-            int n = 0;
+            int[,] maMatrix = new int[3, 3];
+            int n = 5;
 
             // Act
             int[,] output = Matrix.Divide(maMatrix, n);
 
             // Assert
-            Assert.IsNull(output);
+            Assert.AreEqual(new int[3, 3] { { 0, 0, 0 }, { 0, 0, 0 }, { 0, 0, 0 } }, output);
         }
     }
 }
