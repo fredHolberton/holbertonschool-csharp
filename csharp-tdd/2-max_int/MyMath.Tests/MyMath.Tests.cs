@@ -76,5 +76,19 @@ namespace MyMath.Tests
             // Assert
             Assert.AreEqual(1, output);
         }
+
+        /// <summary>Test when the list is null.</summary>
+        [Test]
+        public void TestListIsNull()
+        {
+            // Arrange
+            List<int> nums = null;
+
+            // Act
+            int output = Operations.Max(nums);
+
+            // Assert
+            Assert.IsNull(output);
+        }
     }
 }
