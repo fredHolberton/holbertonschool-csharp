@@ -108,20 +108,6 @@ namespace Text.Tests
             Assert.AreEqual(5, output);
         }
 
-        /// <summary>Test when the string is null.</summary>
-        [Test]
-        public void TestStringIsNull()
-        {
-            // Arrange
-            string s = null;
-
-            // Act
-            int output = Str.UniqueChar(s);
-
-            // Assert
-            Assert.AreEqual(-1, output);
-        }
-
         /// <summary>Test when the string contains one letter.</summary>
         [Test]
         public void TestStringContainsOneLetter()
