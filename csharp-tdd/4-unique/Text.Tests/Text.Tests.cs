@@ -93,5 +93,19 @@ namespace Text.Tests
             // Assert
             Assert.AreEqual(-1, output);
         }
+
+         /// <summary>Test when the string contains one number.</summary>
+        [Test]
+        public void TestStringContainsOneLetter()
+        {
+            // Arrange
+            string s = "aaaaaa1aaaaa";
+
+            // Act
+            int output = Str.UniqueChar(s);
+
+            // Assert
+            Assert.AreEqual(6, output);
+        }
     }
 }
