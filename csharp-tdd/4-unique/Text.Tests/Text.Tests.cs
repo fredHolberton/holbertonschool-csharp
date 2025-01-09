@@ -38,23 +38,65 @@ namespace Text.Tests
             Assert.AreEqual(-1, output);
         }
 
-        /// <summary>Test when the second character is different.</summary>
+        /// <summary>Test when no character is unique.</summary>
         [Test]
-        public void TestSecondCharactersIsDifferent()
+        public void TestNoCharacterIsUnique()
         {
             // Arrange
-            string s = "abaaaaaaaa";
+            string s = "aaabbbcccc";
 
             // Act
             int output = Str.UniqueChar(s);
 
             // Assert
-            Assert.AreEqual(1, output);
+            Assert.AreEqual(-1, output);
+        }
+
+        /// <summary>Test when first character is unique.</summary>
+        [Test]
+        public void TestFirstCharactersIsUnique()
+        {
+            // Arrange
+            string s = "abbbbbbbbb";
+
+            // Act
+            int output = Str.UniqueChar(s);
+
+            // Assert
+            Assert.AreEqual(0, output);
+        }
+
+        /// <summary>Test when last character is unique.</summary>
+        [Test]
+        public void TestLastCharactersIsUnique()
+        {
+            // Arrange
+            string s = "aaaaaaaaab";
+
+            // Act
+            int output = Str.UniqueChar(s);
+
+            // Assert
+            Assert.AreEqual(9, output);
+        }
+
+        /// <summary>Test when one character in the middle is unique.</summary>
+        [Test]
+        public void TestOneCharactersInMiddleIsUnique()
+        {
+            // Arrange
+            string s = "aaaabaaaaa";
+
+            // Act
+            int output = Str.UniqueChar(s);
+
+            // Assert
+            Assert.AreEqual(4, output);
         }
 
         /// <summary>Test when the 2 character are unique.</summary>
         [Test]
-        public void TestLastCharactersIsDifferent()
+        public void TestTwoCharactersAreUnique()
         {
             // Arrange
             string s = "aaabbcdddde";
