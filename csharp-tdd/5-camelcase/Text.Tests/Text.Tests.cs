@@ -52,5 +52,19 @@ namespace Text.Tests
             Assert.AreEqual(3, output);
         }
 
+        /// <summary>Test when 3 block but 2 words.</summary>
+        [Test]
+        public void Test3BlocksBut2Words()
+        {
+            // Arrange
+            string s = "abc Defg hij";
+
+            // Act
+            int output = Str.CamelCase(s);
+
+            // Assert
+            Assert.AreEqual(2, output);
+        }
+
     }
 }
