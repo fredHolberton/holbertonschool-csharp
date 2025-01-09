@@ -96,7 +96,7 @@ namespace Text.Tests
 
          /// <summary>Test when the string contains one number.</summary>
         [Test]
-        public void TestStringContainsOneLetter()
+        public void TestStringContainsOneNumber()
         {
             // Arrange
             string s = "aaaaaa1aaaaa";
