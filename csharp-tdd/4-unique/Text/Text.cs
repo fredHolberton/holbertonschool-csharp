@@ -29,7 +29,6 @@ namespace Text
                 }
 
                 foreach (KeyValuePair<char, int> entry in dic)
-                Console.WriteLine("{0}: {1}", entry.Key, entry.Value);
 
                 // rechercher le premier caractère unique dans le dictionnaire
                 foreach ( KeyValuePair<char, int> kvp in dic)
@@ -55,7 +54,6 @@ namespace Text
                 }
             }
 
-            Console.WriteLine("index = {0}", index);
             return index;
 
         }
