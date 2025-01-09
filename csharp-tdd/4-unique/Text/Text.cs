@@ -11,12 +11,7 @@ namespace Text
         public static int UniqueChar(string s)
         {
             int index = -1;
-            Dictionary<char, int> dic = new Dictionary<char, int>();
-
-            if (s == null)
-            {
-                return -1;
-            }
+            Dictionary<char, int> dic = new Dictionary<char, int>(); 
 
             if (s.Length > 0)
             {
@@ -37,7 +32,6 @@ namespace Text
                 Console.WriteLine("{0}: {1}", entry.Key, entry.Value);
 
                 // rechercher le premier caractère unique dans le dictionnaire
-                char uniqueC;
                 foreach ( KeyValuePair<char, int> kvp in dic)
                 {
                     if (kvp.Value == 1)
@@ -61,6 +55,7 @@ namespace Text
                 }
             }
 
+            Console.WriteLine("index = {0}", index);
             return index;
 
         }
