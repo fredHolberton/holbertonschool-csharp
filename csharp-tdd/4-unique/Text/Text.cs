@@ -13,7 +13,7 @@ namespace Text
             int index = -1;
             char c;
 
-            if (s is null)
+            if (s == null)
             {
                 return -1;
             }
@@ -22,7 +22,7 @@ namespace Text
             {
                 c = s[0];
 
-                for (int i = 0; i < s.Length; i++)
+                for (int i = 1; i < s.Length; i++)
                 {
                     if (s[i] != c)
                     {
