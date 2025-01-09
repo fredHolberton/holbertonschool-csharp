@@ -52,18 +52,18 @@ namespace Text.Tests
             Assert.AreEqual(1, output);
         }
 
-        /// <summary>Test when the last character is different.</summary>
+        /// <summary>Test when the 2 character are unique.</summary>
         [Test]
         public void TestLastCharactersIsDifferent()
         {
             // Arrange
-            string s = "aaaaaaaaab";
+            string s = "aaabbcdddde";
 
             // Act
             int output = Str.UniqueChar(s);
 
             // Assert
-            Assert.AreEqual(9, output);
+            Assert.AreEqual(5, output);
         }
 
         /// <summary>Test when the string is null.</summary>
@@ -91,21 +91,8 @@ namespace Text.Tests
             int output = Str.UniqueChar(s);
 
             // Assert
-            Assert.AreEqual(-1, output);
+            Assert.AreEqual(0, output);
         }
 
-         /// <summary>Test when the string contains one number.</summary>
-        [Test]
-        public void TestStringContainsOneNumber()
-        {
-            // Arrange
-            string s = "aaaaaa1aaaaa";
-
-            // Act
-            int output = Str.UniqueChar(s);
-
-            // Assert
-            Assert.AreEqual(6, output);
-        }
     }
 }

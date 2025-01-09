@@ -11,7 +11,7 @@ namespace Text
         public static int UniqueChar(string s)
         {
             int index = -1;
-            char c;
+            Dictionary<char, int> dic = new Dictionary<char, int>();
 
             if (s == null)
             {
@@ -20,17 +20,46 @@ namespace Text
 
             if (s.Length > 0)
             {
-                c = s[0];
-
-                for (int i = 1; i < s.Length; i++)
+                // Remplir le dictionnaire avec pour comptabiliser le nombre de caractères qui se répètent
+                foreach (char c in s)
                 {
-                    if (s[i] != c)
+                    if (dic.ContainsKey(c))
                     {
-                        index = i;
-                        break;
+                        dic[c] += 1;
+                    }
+                    else
+                    {
+                        dic.Add(c, 1);
                     }    
                 }
-            }        
+
+                foreach (KeyValuePair<char, int> entry in dic)
+                Console.WriteLine("{0}: {1}", entry.Key, entry.Value);
+
+                // rechercher le premier caractère unique dans le dictionnaire
+                char uniqueC;
+                foreach ( KeyValuePair<char, int> kvp in dic)
+                {
+                    if (kvp.Value == 1)
+                    {
+                        
+                        // trouver l'index du caractère
+                        int i = 0;
+                        foreach (char c in s)
+                        {
+                            if (c == kvp.Key)
+                            {
+                                index = i;
+                                break;
+                            }
+                            i++;
+                        }
+
+                        break;
+                        
+                    }
+                }
+            }
 
             return index;
 
