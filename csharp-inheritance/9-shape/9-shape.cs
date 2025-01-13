@@ -97,7 +97,13 @@ public class Square : Rectangle
                 Height = value;
             }               
         }
-    } 
+    }
+
+    /// <summary>Overrides Rectangle method ToString to print the Area of a Square.</summary>
+    public new string ToString()
+    {
+        return "[Square] " + Size + " / " + Size;
+    }
 
 }
 
