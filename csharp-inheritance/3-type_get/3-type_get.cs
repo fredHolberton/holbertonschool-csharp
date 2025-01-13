@@ -17,13 +17,15 @@ public class Obj
         Console.WriteLine("{0} Properties:", myObj.GetType().Name);
         foreach (PropertyInfo p in pList)
         {
-            Console.WriteLine("{0}", p.Name);
+            if (p.Name.IndexOf("System.") == -1)
+                Console.WriteLine("{0}", p.Name);
         }
 
         Console.WriteLine("{0} Methods:", myObj.GetType().Name);
         foreach (MethodInfo m in mList)
         {
-            Console.WriteLine("{0}", m.Name);
+            if (m.Name.IndexOf("System.") == -1)
+                Console.WriteLine("{0}", m.Name);
         }
     }
 }
