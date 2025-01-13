@@ -10,7 +10,7 @@ public class Obj
     /// <summary>Prints the names of the available properties and methods of an object.</summary>
     public static void Print(object myObj)
     {
-        TypeInfo t = typeof(int).GetTypeInfo();
+        TypeInfo t = myObj.GetType().GetTypeInfo();
         IEnumerable<PropertyInfo> pList = t.DeclaredProperties;
         IEnumerable<MethodInfo> mList = t.DeclaredMethods;
 
