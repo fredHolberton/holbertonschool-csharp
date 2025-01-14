@@ -13,18 +13,19 @@ public class Obj
 
         // Properties
         Console.WriteLine("{0} Properties:", myType.Name);
+        PropertyInfo[] myPropertyInfo = myType.GetProperties();
+        foreach (var propInfo in myPropertyInfo) 
+        {
+            Console.WriteLine("{0}", propInfo.Name);
+        }
+        
+        // Methods
+        Console.WriteLine("{0} Methods:", myType.Name);
         MethodInfo[] myArrayMethodInfo = myType.GetMethods();
         for(int i = 0; i < myArrayMethodInfo.Length; i++)
         {
             MethodInfo myMethodInfo = (MethodInfo)myArrayMethodInfo[i];
             Console.WriteLine("{0}", myMethodInfo.Name);
-        }
-        // Methods
-        Console.WriteLine("{0} Methods:", myType.Name);
-        PropertyInfo[] myPropertyInfo = myType.GetProperties();
-        foreach (var propInfo in myPropertyInfo) 
-        {
-            Console.WriteLine("{0}", propInfo.Name);
         }
     }
 }
