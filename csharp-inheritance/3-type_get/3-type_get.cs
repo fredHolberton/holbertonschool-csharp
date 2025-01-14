@@ -10,22 +10,22 @@ public class Obj
     /// <summary>Prints the names of the available properties and methods of an object.</summary>
     public static void Print(object myObj)
     {
-        TypeInfo t = myObj.GetType().GetTypeInfo();
-        IEnumerable<PropertyInfo> pList = t.DeclaredProperties;
-        IEnumerable<MethodInfo> mList = t.DeclaredMethods;
+        Type myType = myObj.GetType();
 
-        Console.WriteLine("{0} Properties:", myObj.GetType().Name);
-        foreach (PropertyInfo p in pList)
+        // Properties
+        Console.WriteLine("{0} Properties:", myType.Name);
+        MethodInfo[] myArrayMethodInfo = myType.GetMethods();
+        for(int i = 0; i < myArrayMethodInfo.Length; i++)
         {
-            if (p.Name.IndexOf("System.") == -1)
-                Console.WriteLine("{0}", p.Name);
+            MethodInfo myMethodInfo = (MethodInfo)myArrayMethodInfo[i];
+            Console.WriteLine("{0}", myMethodInfo.Name);
         }
-
-        Console.WriteLine("{0} Methods:", myObj.GetType().Name);
-        foreach (MethodInfo m in mList)
+        // Methods
+        Console.WriteLine("{0} Methods:", myType.Name);
+        PropertyInfo[] myPropertyInfo = myType.GetProperties();
+        foreach (var propInfo in myPropertyInfo) 
         {
-            if (m.Name.IndexOf("System.") == -1)
-                Console.WriteLine("{0}", m.Name);
+            Console.WriteLine("{0}", propInfo.Name);
         }
     }
 }
