@@ -7,7 +7,9 @@ using System.Text;
 /// <summary>This is an public class Obj.</summary>
 public class Obj
 {
-    /// <summary>Prints the names of the available properties and methods of an object.</summary>
+    /// <summary>Prints the names of the available properties
+    /// and methods of an object.
+    /// </summary>
     public static void Print(object myObj)
     {
         Type myType = myObj.GetType();
