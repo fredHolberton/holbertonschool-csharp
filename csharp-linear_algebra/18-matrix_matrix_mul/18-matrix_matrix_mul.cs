@@ -14,11 +14,11 @@ public class MatrixMath
         int colsMatrix1 = matrix1.GetLength(1);
         int rowsMatrix2 = matrix2.GetLength(0);
         int colsMatrix2 = matrix2.GetLength(1);
+        double[,] result;
 
         if (colsMatrix1 != rowsMatrix2 || rowsMatrix1 == 0 || colsMatrix1 == 0 || rowsMatrix2 == 0 || colsMatrix2 == 0)
             return new double[1, 1]{{-1}};
 
-        double[,] result;
         if  (rowsMatrix1 <= rowsMatrix2)
             result = new double[rowsMatrix1, colsMatrix2];
         else
