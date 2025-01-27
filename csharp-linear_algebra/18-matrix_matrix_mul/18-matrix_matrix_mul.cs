@@ -16,7 +16,7 @@ public class MatrixMath
         int colsMatrix2 = matrix2.GetLength(1);
         double[,] result;
 
-        if (colsMatrix1 != rowsMatrix2 || rowsMatrix1 == 0 || colsMatrix1 == 0 || rowsMatrix2 == 0 || colsMatrix2 == 0)
+        if (colsMatrix1 != rowsMatrix2 || rowsMatrix1 != colsMatrix2 || rowsMatrix1 == 0 || colsMatrix1 == 0 || rowsMatrix2 == 0 || colsMatrix2 == 0)
             return new double[1, 1]{{-1}};
 
         if  (rowsMatrix1 <= rowsMatrix2)
