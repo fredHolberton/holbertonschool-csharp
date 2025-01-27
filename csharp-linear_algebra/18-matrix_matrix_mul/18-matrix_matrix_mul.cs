@@ -16,7 +16,7 @@ public class MatrixMath
         int colsMatrix2 = matrix2.GetLength(1);
         double[,] result;
 
-        if (colsMatrix1 != rowsMatrix2 || rowsMatrix1 != colsMatrix2 || rowsMatrix1 == 0 || colsMatrix1 == 0 || rowsMatrix2 == 0 || colsMatrix2 == 0)
+        if (colsMatrix1 != rowsMatrix2 || rowsMatrix1 == 0 || colsMatrix1 == 0 || rowsMatrix2 == 0 || colsMatrix2 == 0)
             return new double[1, 1]{{-1}};
 
         if  (rowsMatrix1 <= rowsMatrix2)
@@ -31,7 +31,7 @@ public class MatrixMath
                 result[i, j] = 0;
                 for (int k = 0; k < colsMatrix1; k++)
                 {
-                    result[i, j] += matrix1[i, k] * matrix2[k, j];
+                    result[i, j] = result[i, j] + matrix1[i, k] * matrix2[k, j];
                 }
             }
         }
