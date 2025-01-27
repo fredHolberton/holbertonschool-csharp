@@ -7,7 +7,7 @@ public class VectorMath
     /// </summary>
     public static double Magnitude(double[] vector)
     {
-        if ((vector == NULL) || (vector.Length == 0))
+        if ((vector == null) || (vector.Length == 0))
             return -1;
         if (vector.Length < 2 || vector.Length > 3)
             return -1;
