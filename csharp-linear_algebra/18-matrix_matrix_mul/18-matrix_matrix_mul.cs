@@ -15,15 +15,20 @@ public class MatrixMath
         int rowsMatrix2 = matrix2.GetLength(0);
         int colsMatrix2 = matrix2.GetLength(1);
 
-        if (rowsMatrix1 == 0 || colsMatrix1 == 0 || rowsMatrix2 == 0 || colsMatrix2 == 0 || colsMatrix1 != rowsMatrix2)
+        if (colsMatrix1 != rowsMatrix2)
             return new double[1, 1]{{-1}};
 
-        double[,] result = new double[rowsMatrix1, colsMatrix2];
+        double[,] result;
+        if  (rowsMatrix1 <= rowsMatrix2)
+            result = new double[rowsMatrix1, colsMatrix2];
+        else
+            result = new double[rowsMatrix2, colsMatrix1];
+
 
         // Multiplication des matrices
-        for (int i = 0; i < rowsMatrix1; i++)
+        for (int i = 0; i < result.GetLength(0); i++)
         {
-            for (int j = 0; j < colsMatrix2; j++)
+            for (int j = 0; j < result.GetLength(1); j++)
             {
                 result[i, j] = 0;
                 for (int k = 0; k < colsMatrix1; k++)
