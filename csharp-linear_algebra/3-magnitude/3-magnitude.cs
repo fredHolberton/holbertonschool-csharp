@@ -1,13 +1,11 @@
 ﻿using System;
 
-// Public class VectorMath for manipulating vectors.
+/* Public class VectorMath for manipulating vectors.*/
 public class VectorMath
 {
-    // calculates and returns the length of a given vector.
+    /* calculates and returns the length of a given vector.*/
     public static double Magnitude(double[] vector)
     {
-        if ((vector == null) || (vector.Length == 0))
-            return -1;
         if (vector.Length < 2 || vector.Length > 3)
             return -1;
             
