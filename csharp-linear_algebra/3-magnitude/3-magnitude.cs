@@ -1,10 +1,9 @@
 ﻿using System;
 
-/// <summary>Public class VectorMath for manipulating vectors.</summary>
+// Public class VectorMath for manipulating vectors.
 public class VectorMath
 {
-    /// <summary>calculates and returns the length of a given vector.
-    /// </summary>
+    // calculates and returns the length of a given vector.
     public static double Magnitude(double[] vector)
     {
         if ((vector == null) || (vector.Length == 0))
