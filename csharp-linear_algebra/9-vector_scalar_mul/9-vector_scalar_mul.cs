@@ -14,7 +14,7 @@ public class VectorMath
             return new double[1]{-1};
 
         double[] result;
-        if (vector1.Length == 2)
+        if (vector.Length == 2)
         {
             result = new double[2]{0, 0};
         }            
@@ -23,7 +23,7 @@ public class VectorMath
             result = new double[3]{0, 0, 0};
         }   
 
-        for (int i = 0; i < vector1.Length; i++)
+        for (int i = 0; i < vector.Length; i++)
         {
             result[i] = vector[i]  * scalar;
         }
