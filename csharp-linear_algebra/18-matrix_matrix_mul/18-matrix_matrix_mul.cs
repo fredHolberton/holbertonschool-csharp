@@ -24,8 +24,6 @@ public class MatrixMath
         else
             result = new double[rowsMatrix2, colsMatrix1];
 
-
-        // Multiplication des matrices
         for (int i = 0; i < result.GetLength(0); i++)
         {
             for (int j = 0; j < result.GetLength(1); j++)
