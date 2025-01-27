@@ -15,7 +15,7 @@ public class MatrixMath
             return new double[1, 1]{{-1}};
 
         double[,] result;
-        if (matrix1.GetLength(0) == 2)
+        if (matrix.GetLength(0) == 2)
         {
             result = new double[2, 2]{ {0, 0}, {0, 0} };
         }            
