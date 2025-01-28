@@ -14,7 +14,7 @@ public class MatrixMath
         if (matrix.GetLength(0) != 2 || matrix.GetLength(1) != 2)
             return new double[,] { {-1} };
 
-        double[,] rotateMatrix = new double[2,2]{{Math.Cos(angle), -1 * Math.Sin(angle) }, {Math.Sin(angle), Math.Cos(angle)} };
+        double[,] rotateMatrix = new double[2,2] { {Math.Cos(angle), -1 * Math.Sin(angle) }, {Math.Sin(angle), Math.Cos(angle)} };
         double[,] result = Multiply(rotateMatrix, matrix);
         result[0, 0] = Math.Round(result[0, 0], 2);
         result[0, 1] = Math.Round(result[0, 1], 2);
