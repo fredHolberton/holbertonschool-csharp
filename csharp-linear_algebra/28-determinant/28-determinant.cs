@@ -21,11 +21,11 @@ public class MatrixMath
         else
         {
             result = matrix[0, 0] * matrix[1, 1] * matrix[2, 2];
-            result += matrix[1, 0] * matrix[2, 1] * matrix[0, 2];
-            result += matrix[0, 1] * matrix[1, 2] * matrix[2, 0];
-            result -= matrix[2,0] * matrix[1, 1] * matrix[0, 2];
-            result -= matrix[1, 0] * matrix[0, 1] * matrix[2, 2];
-            result -= matrix [0, 0] * matrix[2, 1] * matrix[1, 2];
+            result = result + (matrix[1, 0] * matrix[2, 1] * matrix[0, 2]);
+            result = result + (matrix[0, 1] * matrix[1, 2] * matrix[2, 0]);
+            result = result - (matrix[2, 0] * matrix[1, 1] * matrix[0, 2]);
+            result = result - (matrix[1, 0] * matrix[0, 1] * matrix[2, 2]);
+            result = result - (matrix [0, 0] * matrix[2, 1] * matrix[1, 2]);
         }
 
         return result;
