@@ -10,16 +10,14 @@ public class MatrixMath
     /// </summary>
     public static double[,] Multiply(double[,] matrix1, double[,] matrix2)
     {
+        if (matrix1.GetLength(1) != matrix2.GetLength(0))
+            return new double[1, 1]{{-1}};
+
         int rowsMatrix1 = matrix1.GetLength(0);
         int colsMatrix1 = matrix1.GetLength(1);
         int rowsMatrix2 = matrix2.GetLength(0);
         int colsMatrix2 = matrix2.GetLength(1);
-        double[,] result;
-
-        if (colsMatrix1 != rowsMatrix2)
-            return new double[1, 1]{{-1}};
-
-        result = new double[rowsMatrix1, colsMatrix2];
+        double[,] result= new double[rowsMatrix1, colsMatrix2];
 
         for (int i = 0; i < rowsMatrix1; i++)
         {
