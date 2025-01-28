@@ -11,7 +11,7 @@ public class MatrixMath
     public static double[,] Multiply(double[,] matrix1, double[,] matrix2)
     {
         if (matrix1.GetLength(1) != matrix2.GetLength(0))
-            return new double[1, 1]{{-1}};
+            return new double[,]{ {-1} };
 
         int rowsMatrix1 = matrix1.GetLength(0);
         int colsMatrix1 = matrix1.GetLength(1);
@@ -34,4 +34,3 @@ public class MatrixMath
         return result;
     }
 }
-
