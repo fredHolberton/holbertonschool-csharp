@@ -17,7 +17,7 @@ public class MatrixMath
         int colsMatrix1 = matrix1.GetLength(1);
         int rowsMatrix2 = matrix2.GetLength(0);
         int colsMatrix2 = matrix2.GetLength(1);
-        double[,] result= new double[rowsMatrix1, colsMatrix2];
+        double[,] result = new double[rowsMatrix1, colsMatrix2];
 
         for (int i = 0; i < rowsMatrix1; i++)
         {
@@ -26,7 +26,7 @@ public class MatrixMath
                 result[i, j] = 0;
                 for (int k = 0; k < colsMatrix1; k++)
                 {
-                    result[i, j] = result[i, j] + matrix1[i, k] * matrix2[k, j];
+                    result[i, j] = result[i, j] + (matrix1[i, k] * matrix2[k, j]);
                 }
             }
         }
