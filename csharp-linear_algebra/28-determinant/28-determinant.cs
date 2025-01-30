@@ -26,6 +26,6 @@ public class MatrixMath
             result = result - (matrix [0, 0] * matrix[2, 1] * matrix[1, 2]);
         }
 
-        return result;
+        return Math.Round(result, 2);
     }
 }
