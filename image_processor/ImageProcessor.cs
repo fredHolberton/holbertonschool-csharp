@@ -42,7 +42,7 @@ public class ImageProcessor
                 string original_file_name = Path.GetFileNameWithoutExtension(filename);
                 string original_file_extension = Path.GetExtension(filename);
                 string invertedFileName = original_file_name + "_inverse" + original_file_extension;
-                image.Save(invertedFileName, GetImageExtension(original_file_extension));
+                image.Save(invertedFileName);
             }
         }
         catch (Exception ex)
@@ -68,33 +68,19 @@ public class ImageProcessor
         for (int i = 0; i < pixelBuffer.Length / 4; i++)
         {
             int x = i * 4;
-            pixelBuffer[x] ^= 0xFF;
-            pixelBuffer[x + 1] ^= 0xFF;
-            pixelBuffer[x + 2] ^= 0xFF;
-            pixelBuffer[x + 3] ^= 0xFF;
+            byte blue = pixelBuffer[x];
+            byte green = pixelBuffer[x + 1];
+            byte red = pixelBuffer[x + 2];
+            byte alpha = pixelBuffer[x + 3];
+
+            pixelBuffer[x] = (byte)(255 - blue);
+            pixelBuffer[x + 1] = (byte)(255 - green);
+            pixelBuffer[x + 2]  = (byte)(255 - red);
+            pixelBuffer[x + 3] = (byte)(255 - alpha);
         }
 
         System.Runtime.InteropServices.Marshal.Copy(pixelBuffer, 0, bmpData.Scan0, pixelBuffer.Length);
 
         image.UnlockBits(bmpData);
-    }
-
-    /// <summary> Determine le format de l'image.</summary>
-    private static ImageFormat GetImageExtension(string extension)
-    {
-        /* Vérifier l'extension du fichier pour déterminer le format */
-        ImageFormat format = extension switch
-        {
-            ".jpg" => ImageFormat.Jpeg,
-            ".jpeg" => ImageFormat.Jpeg,
-            ".png" => ImageFormat.Png,
-            ".bmp" => ImageFormat.Bmp,
-            ".gif" => ImageFormat.Gif,
-            ".tiff" => ImageFormat.Tiff,
-            _ => throw new NotSupportedException("Format d'image non supporté")
-        };
-
-        /* Retourne le format spécifié */
-        return format;
     }
 }
