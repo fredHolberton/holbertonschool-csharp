@@ -14,7 +14,7 @@ public class ImageProcessor
         for (int i = 0; i < filenames.Length; i++)
         {     
             int index = i;
-            threads[i] = new Thread(() => InverseOneImage(filenames[index]));
+            threads[i] = new Thread(new ThreadStart(InverseOneImage(filenames[index])));
             threads[i].Start();
         }
 
