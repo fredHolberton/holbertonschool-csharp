@@ -27,8 +27,7 @@ public class ImageProcessor
 
     }
 
-    
-
+    /// <summary> inverts one image’s color.</summary>
     private static void InverseOneImage(string filename)
     {
         /* Récupère le nom et l'extension du fichier image */
