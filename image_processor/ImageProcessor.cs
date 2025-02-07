@@ -71,6 +71,7 @@ public class ImageProcessor
             pixelBuffer[x] ^= 0xFF;
             pixelBuffer[x + 1] ^= 0xFF;
             pixelBuffer[x + 2] ^= 0xFF;
+            pixelBuffer[x + 3] ^= 0xFF;
         }
 
         System.Runtime.InteropServices.Marshal.Copy(pixelBuffer, 0, bmpData.Scan0, pixelBuffer.Length);
