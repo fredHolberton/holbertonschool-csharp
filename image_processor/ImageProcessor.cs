@@ -27,6 +27,8 @@ public class ImageProcessor
 
     }
 
+    
+
     private static void InverseOneImage(string filename)
     {
         /* Récupère le nom et l'extension du fichier image */
@@ -35,20 +37,31 @@ public class ImageProcessor
         string original_file_extension = words[1];
 
         /* crée un bitmap à partir du fichier image */
-        Bitmap myBitmap = new Bitmap(filename);
-
-        // Set each pixel in myBitmap to it's inverse.
-        for (int Xcount = 0; Xcount < myBitmap.Width; Xcount++)
+        using (Bitmap image = new Bitmap(filename))
         {
-            for (int Ycount = 0; Ycount < myBitmap.Height; Ycount++)
+            int width = image.Width;
+            int height = image.Height;
+
+            BitmapData bmpData = image.LockBits(new Rectangle(0, 0, width, height), ImageLockMode.ReadWrite, PixelFormat.Format32bppArgb);
+
+            int stride = bmpData.Stride;
+            byte[] pixelBuffer = new byte[stride * height];
+
+            System.Runtime.InteropServices.Marshal.Copy(bmpData.Scan0, pixelBuffer, 0, pixelBuffer.Length);
+
+            for (int i = 0; i < pixelBuffer.Length / 4; i++)
             {
-                Color colorPixel = myBitmap.GetPixel(Xcount,Ycount);
-                Color invertedColor = Color.FromArgb(255 - colorPixel.R, 255 - colorPixel.G, 255 - colorPixel.B);
-
-                myBitmap.SetPixel(Xcount, Ycount, invertedColor);
+                int x = i * 4;
+                pixelBuffer[x] ^= 0xFF;
+                pixelBuffer[x + 1] ^= 0xFF;
+                pixelBuffer[x + 2] ^= 0xFF;
             }
-        }
 
-        myBitmap.Save(original_file_name + "_inverse." + original_file_extension);
+            System.Runtime.InteropServices.Marshal.Copy(pixelBuffer, 0, bmpData.Scan0, pixelBuffer.Length);
+
+            image.UnlockBits(bmpData);
+
+            image.Save(original_file_name + "_inverse." + original_file_extension);
+        }
     }
 }
