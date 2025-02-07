@@ -14,7 +14,7 @@ public class ImageProcessor
         for (int i = 0; i < filenames.Length; i++)
         {     
             int index = i;
-            threads[i] = new Thread(new ThreadStart(InverseOneImage(filenames[index])));
+            threads[i] = new Thread(() => InverseOneImage(filenames[index]));
             threads[i].Start();
         }
 
@@ -32,8 +32,8 @@ public class ImageProcessor
     {
         /* Récupère le nom et l'extension du fichier image */
         string[] words = filename.Split('.');
-        string original_file_name = words[0];
-        string original_file_extension = words[1];
+        string original_file_name = Path.GetFileName(filename);
+        string original_file_extension = Path.GetExtension(filename);
 
         /* crée un bitmap à partir du fichier image */
         using (Bitmap image = new Bitmap(filename))
