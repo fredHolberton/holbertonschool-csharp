@@ -14,7 +14,7 @@ public class ImageProcessor
         for (int i = 0; i < filenames.Length; i++)
         {     
             int index = i;
-            threads[i] = new Thread(() => InverseOneImage(filenames[index]));
+            threads[i] = new Thread(() => InvertImageColors(filenames[index]));
             threads[i].Start();
         }
 
@@ -27,52 +27,52 @@ public class ImageProcessor
     }
 
     /// <summary> process one image.</summary>
-    public static void InverseOneImage(string filename)
+    public static void InvertImageColors(string filename)
     {
-        /* Charger l'image */
-        using (Bitmap image = new Bitmap(filename))
+        try
         {
-            /* Inverser les couleurs de manière plus rapide */
-             InvertColors(image);
+            /* Charger l'image */
+            using (Bitmap image = new Bitmap(filename))
+            {
+                /* Verrouiller les bits de l'image pour un accès direct aux données des pixels */
+                int width = image.Width;
+                int height = image.Height;
 
-            /* Sauvegarder l'image inversée avec un suffixe "_inverted" */
-            string original_file_name = Path.GetFileNameWithoutExtension(filename);
-            string original_file_extension = Path.GetExtension(filename);
-            string invertedFileName = original_file_name + "_inverse" + original_file_extension;
-            image.Save(invertedFileName);
+                BitmapData bmpData = image.LockBits(new Rectangle(0, 0, width, height), ImageLockMode.ReadWrite, image.PixelFormat);
+
+                int stride = bmpData.Stride;
+                byte[] pixelBuffer = new byte[stride * height];
+
+                System.Runtime.InteropServices.Marshal.Copy(bmpData.Scan0, pixelBuffer, 0, pixelBuffer.Length);
+
+                for (int i = 0; i < pixelBuffer.Length / 4; i++)
+                {
+                    int x = i * 4;
+                    byte blue = pixelBuffer[x];
+                    byte green = pixelBuffer[x + 1];
+                    byte red = pixelBuffer[x + 2];
+                    byte alpha = pixelBuffer[x + 3];
+
+                    pixelBuffer[x] = (byte)(255 - blue);
+                    pixelBuffer[x + 1] = (byte)(255 - green);
+                    pixelBuffer[x + 2]  = (byte)(255 - red);
+                    pixelBuffer[x + 3] = (byte)(255 - alpha);
+                }
+
+                System.Runtime.InteropServices.Marshal.Copy(pixelBuffer, 0, bmpData.Scan0, pixelBuffer.Length);
+
+                image.UnlockBits(bmpData);
+
+                /* Sauvegarder l'image inversée avec un suffixe "_inverted" */
+                string original_file_name = Path.GetFileNameWithoutExtension(filename);
+                string original_file_extension = Path.GetExtension(filename);
+                string invertedFileName = original_file_name + "_inverse" + original_file_extension;
+                image.Save(invertedFileName);
+            }
         }
-    }
-
-    /// <summary> Invert image's colors.</summary>
-    private static void InvertColors(Bitmap image)
-    {
-        /* Verrouiller les bits de l'image pour un accès direct aux données des pixels */
-        int width = image.Width;
-        int height = image.Height;
-
-        BitmapData bmpData = image.LockBits(new Rectangle(0, 0, width, height), ImageLockMode.ReadWrite, PixelFormat.Format32bppArgb);
-
-        int stride = bmpData.Stride;
-        byte[] pixelBuffer = new byte[stride * height];
-
-        System.Runtime.InteropServices.Marshal.Copy(bmpData.Scan0, pixelBuffer, 0, pixelBuffer.Length);
-
-        for (int i = 0; i < pixelBuffer.Length / 4; i++)
+        catch (Exception ex)
         {
-            int x = i * 4;
-            byte blue = pixelBuffer[x];
-            byte green = pixelBuffer[x + 1];
-            byte red = pixelBuffer[x + 2];
-            byte alpha = pixelBuffer[x + 3];
-
-            pixelBuffer[x] = (byte)(255 - blue);
-            pixelBuffer[x + 1] = (byte)(255 - green);
-            pixelBuffer[x + 2]  = (byte)(255 - red);
-            pixelBuffer[x + 3] = (byte)(255 - alpha);
+            Console.WriteLine($"Error processing file {filename}: {ex.Message}");
         }
-
-        System.Runtime.InteropServices.Marshal.Copy(pixelBuffer, 0, bmpData.Scan0, pixelBuffer.Length);
-
-        image.UnlockBits(bmpData);
     }
 }
