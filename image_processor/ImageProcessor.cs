@@ -46,10 +46,10 @@ public class ImageProcessor
                 {
                     int x = i * 4;
 
-                    pixelBuffer[x] ^= 0xFF;
-                    pixelBuffer[x + 1] ^= 0xFF;
-                    pixelBuffer[x + 2] ^= 0xFF;
-                    pixelBuffer[x + 3] ^= 0xFF;
+                    pixelBuffer[x] = (byte)(255 - pixelBuffer[x]);
+                    pixelBuffer[x + 1] = (byte)(255 - pixelBuffer[x + 1]);
+                    pixelBuffer[x + 2] = (byte)(255 - pixelBuffer[x + 2]);
+                    pixelBuffer[x + 3] = (byte)(255 - pixelBuffer[x + 3]);
                 }
                 System.Runtime.InteropServices.Marshal.Copy(pixelBuffer, 0, bmpData.Scan0, pixelBuffer.Length);
                 image.UnlockBits(bmpData);
@@ -58,33 +58,12 @@ public class ImageProcessor
                 string original_file_extension = Path.GetExtension(filename);
                 string invertedFileName = original_file_name + "_inverse" + original_file_extension;
 
-                image.Save(invertedFileName, GetImageFormat(original_file_extension));
+                image.Save(invertedFileName);
             }
         }
         catch (Exception ex)
         {
             Console.WriteLine($"Error processing file {filename}: {ex.Message}");
-        }
-    }
-
-    /// <summary> Méthode pour obtenir le format de l'image en fonction de l'extension.</summary>
-    private static System.Drawing.Imaging.ImageFormat GetImageFormat(string extension)
-    {
-        switch (extension.ToLower())
-        {
-            case ".jpg":
-            case ".jpeg":
-                return System.Drawing.Imaging.ImageFormat.Jpeg;
-            case ".png":
-                return System.Drawing.Imaging.ImageFormat.Png;
-            case ".bmp":
-                return System.Drawing.Imaging.ImageFormat.Bmp;
-            case ".gif":
-                return System.Drawing.Imaging.ImageFormat.Gif;
-            case ".tiff":
-                return System.Drawing.Imaging.ImageFormat.Tiff;
-            default:
-                throw new NotSupportedException("Format de fichier non pris en charge.");
         }
     }
 }
