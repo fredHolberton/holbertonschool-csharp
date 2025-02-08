@@ -61,6 +61,7 @@ public class ImageProcessor
                 string original_file_name = Path.GetFileNameWithoutExtension(filename);
                 string original_file_extension = Path.GetExtension(filename);
                 string invertedFileName = original_file_name + "_inverse" + original_file_extension;
+                
                 image.Save(invertedFileName);
             }
         }
