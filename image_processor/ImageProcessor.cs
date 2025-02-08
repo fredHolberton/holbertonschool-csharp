@@ -27,7 +27,7 @@ public class ImageProcessor
     }
 
     /// <summary> process one image.</summary>
-    public static void InvertImageColors(string filename)
+    private static void InvertImageColors(string filename)
     {
         try
         {
@@ -37,14 +37,11 @@ public class ImageProcessor
                 /* Verrouiller les bits de l'image pour un accès direct aux données des pixels */
                 int width = image.Width;
                 int height = image.Height;
-
                 BitmapData bmpData = image.LockBits(new Rectangle(0, 0, width, height), ImageLockMode.ReadWrite, image.PixelFormat);
-
                 int stride = bmpData.Stride;
                 byte[] pixelBuffer = new byte[stride * height];
 
                 System.Runtime.InteropServices.Marshal.Copy(bmpData.Scan0, pixelBuffer, 0, pixelBuffer.Length);
-
                 for (int i = 0; i < pixelBuffer.Length / 4; i++)
                 {
                     int x = i * 4;
@@ -58,11 +55,8 @@ public class ImageProcessor
                     pixelBuffer[x + 2]  = (byte)(255 - red);
                     pixelBuffer[x + 3] = (byte)(255 - alpha);
                 }
-
                 System.Runtime.InteropServices.Marshal.Copy(pixelBuffer, 0, bmpData.Scan0, pixelBuffer.Length);
-
                 image.UnlockBits(bmpData);
-
                 /* Sauvegarder l'image inversée avec un suffixe "_inverted" */
                 string original_file_name = Path.GetFileNameWithoutExtension(filename);
                 string original_file_extension = Path.GetExtension(filename);
