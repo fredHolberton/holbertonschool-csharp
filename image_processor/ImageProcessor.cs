@@ -37,7 +37,7 @@ public class ImageProcessor
                 /* Verrouiller les bits de l'image pour un accès direct aux données des pixels */
                 int width = image.Width;
                 int height = image.Height;
-                BitmapData bmpData = image.LockBits(new Rectangle(0, 0, width, height), ImageLockMode.ReadWrite, image.PixelFormat);
+                BitmapData bmpData = image.LockBits(new Rectangle(0, 0, width, height), ImageLockMode.ReadWrite, PixelFormat.Format32bppArgb);
                 int stride = bmpData.Stride;
                 byte[] pixelBuffer = new byte[stride * height];
 
@@ -48,7 +48,7 @@ public class ImageProcessor
                     byte green = pixelBuffer[x + 1];
                     byte red = pixelBuffer[x + 2];
                     byte alpha = pixelBuffer[x + 3];
-                    
+
                     pixelBuffer[x] = (byte)(255 - blue);
                     pixelBuffer[x + 1] = (byte)(255 - green);
                     pixelBuffer[x + 2]  = (byte)(255 - red);
