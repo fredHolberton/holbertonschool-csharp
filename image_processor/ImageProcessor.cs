@@ -33,32 +33,13 @@ public class ImageProcessor
         using (Bitmap image = new Bitmap(filename))
         {
             /* Inverser les couleurs de manière plus rapide */
-             InvertColorsSimple(image);
+             InvertColors(image);
 
             /* Sauvegarder l'image inversée avec un suffixe "_inverted" */
             string original_file_name = Path.GetFileNameWithoutExtension(filename);
             string original_file_extension = Path.GetExtension(filename);
             string invertedFileName = original_file_name + "_inverse" + original_file_extension;
             image.Save(invertedFileName);
-        }
-    }
-
-    private static void InvertColorsSimple(Bitmap image)
-    {
-        /* Iterate through each pixel and invert its color */
-        for (int y = 0; y < image.Height; y++)
-        {
-            for (int x = 0; x < image.Width; x++)
-            {
-                /* Get pixel color */
-                Color pixelColor = image.GetPixel(x, y);
-
-                /* Invert the color */
-                Color invertedColor = Color.FromArgb(255 - pixelColor.R, 255 - pixelColor.G, 255 - pixelColor.B, 255 - pixelColor.A);
-
-                /* Set the pixel to the inverted color */
-                image.SetPixel(x, y, invertedColor);
-            }
         }
     }
 
