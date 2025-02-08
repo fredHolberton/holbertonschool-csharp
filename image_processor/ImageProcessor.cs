@@ -2,7 +2,6 @@
 using System.Threading;
 using System.Drawing;
 using System.Drawing.Imaging;
-using System.IO;
 
 /// <summary>Public class ImageProcessor for image processing.</summary>
 public class ImageProcessor
@@ -28,26 +27,38 @@ public class ImageProcessor
     }
 
     /// <summary> process one image.</summary>
-    private static void InverseOneImage(string filename)
+    public static void InverseOneImage(string filename)
     {
-        try
+        /* Charger l'image */
+        using (Bitmap image = new Bitmap(filename))
         {
-            /* Charger l'image */
-            using (Bitmap image = new Bitmap(filename))
-            {
-                /* Inverser les couleurs de manière plus rapide */
-                InvertColors(image);
+            /* Inverser les couleurs de manière plus rapide */
+             InvertColorsSimple(image);
 
-                /* Sauvegarder l'image inversée avec un suffixe "_inverted" */
-                string original_file_name = Path.GetFileNameWithoutExtension(filename);
-                string original_file_extension = Path.GetExtension(filename);
-                string invertedFileName = original_file_name + "_inverse" + original_file_extension;
-                image.Save(invertedFileName);
-            }
+            /* Sauvegarder l'image inversée avec un suffixe "_inverted" */
+            string original_file_name = Path.GetFileNameWithoutExtension(filename);
+            string original_file_extension = Path.GetExtension(filename);
+            string invertedFileName = original_file_name + "_inverse" + original_file_extension;
+            image.Save(invertedFileName);
         }
-        catch (Exception ex)
+    }
+
+    private static void InvertColorsSimple(Bitmap image)
+    {
+        /* Iterate through each pixel and invert its color */
+        for (int y = 0; y < image.Height; y++)
         {
-            Console.WriteLine($"Erreur lors du traitement de l'image {filename} : {ex.Message}");
+            for (int x = 0; x < image.Width; x++)
+            {
+                /* Get pixel color */
+                Color pixelColor = image.GetPixel(x, y);
+
+                /* Invert the color */
+                Color invertedColor = Color.FromArgb(255 - pixelColor.R, 255 - pixelColor.G, 255 - pixelColor.B, 255 - pixelColor.A);
+
+                /* Set the pixel to the inverted color */
+                image.SetPixel(x, y, invertedColor);
+            }
         }
     }
 
