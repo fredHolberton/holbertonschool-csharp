@@ -26,7 +26,8 @@ public class ImageProcessor
         foreach (Thread thread in threads)
         {
             /* Bloque le programme jusqu'à ce que le thread soit terminé */
-            thread.Join();
+            if (thread != null)
+                thread.Join();
         }
     }
 
