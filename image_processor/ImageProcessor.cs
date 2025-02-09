@@ -31,7 +31,7 @@ public class ImageProcessor
         }
     }
 
-    /// <summary> process one image.</summary>
+    /* process one image. */
     private static void InvertImageColors(string filename)
     {
         try
@@ -67,7 +67,7 @@ public class ImageProcessor
                 string original_file_extension = Path.GetExtension(filename);
                 string invertedFileName = original_file_name + "_inverse" + original_file_extension;
 
-                image.Save(invertedFileName);
+                image.Save(invertedFileName, GetImageFormat(filename));
             }
         }
         catch (Exception ex)
@@ -76,9 +76,10 @@ public class ImageProcessor
         }
     }
 
+    /* Return true if the file is an image */
     private static bool isImage(string fileExtension)
     {
-        string[] imageExtensions = new string[] { ".jpg", ".jpeg", ".png", ".gif", ".bmp", ".tiff", ".webp" };
+        string[] imageExtensions = new string[] { ".jpg", ".jpeg", ".png", ".gif", ".bmp", ".tiff", ".ico" };
         fileExtension = fileExtension.ToLower();
 
         /* Vérifier si l'extension est dans la liste des extensions d'images */
@@ -91,5 +92,29 @@ public class ImageProcessor
         }
 
         return false;
+    }
+
+    /* Retun the image format corresponding to the image file */
+    private static ImageFormat GetImageFormat(string filename)
+    {
+        string extension = Path.GetExtension(filename);
+        switch (extension.ToLower())
+        {
+            case ".jpg":
+            case ".jpeg":
+                return ImageFormat.Jpeg;
+            case ".png":
+                return ImageFormat.Png;
+            case ".bmp":
+                return ImageFormat.Bmp;
+            case ".gif":
+                return ImageFormat.Gif;
+            case ".tiff":
+                return ImageFormat.Tiff;
+            case ".ico":
+                return ImageFormat.Icon;
+            default:
+                throw new ArgumentException("Extension non prise en charge", nameof(extension));
+        }
     }
 }
