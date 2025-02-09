@@ -13,16 +13,20 @@ public class ImageProcessor
 
         for (int i = 0; i < filenames.Length; i++)
         {     
-            int index = i;
-            threads[i] = new Thread(() => InvertImageColors(filenames[index]));
-            threads[i].Start();
+            if (isImage(Path.GetExtension(filenames[i])))
+            {
+                int index = i;
+                threads[i] = new Thread(() => InvertImageColors(filenames[index]));
+                threads[i].Start();
+            }
+            
         }
 
         /* Attendre que tous les threads soient terminés */
-        for (int i = 0; i < threads.Length; i++)
+        foreach (Thread thread in threads)
         {
             /* Bloque le programme jusqu'à ce que le thread soit terminé */
-            threads[i].Join();
+            thread.Join();
         }
     }
 
@@ -45,6 +49,7 @@ public class ImageProcessor
                 for (int i = 0; i < pixelBuffer.Length / 4; i++)
                 {
                     int x = i * 4;
+                    byte blue = pixelBuffer[x];
                     byte green = pixelBuffer[x + 1];
                     byte red = pixelBuffer[x + 2];
                     byte alpha = pixelBuffer[x + 3];
@@ -68,5 +73,22 @@ public class ImageProcessor
         {
             Console.WriteLine($"Error processing file {filename}: {ex.Message}");
         }
+    }
+
+    private static bool isImage(string fileExtension)
+    {
+        string[] imageExtensions = new string[] { ".jpg", ".jpeg", ".png", ".gif", ".bmp", ".tiff", ".webp" };
+        fileExtension = fileExtension.ToLower();
+
+        /* Vérifier si l'extension est dans la liste des extensions d'images */
+        foreach (var extension in imageExtensions)
+        {
+            if (fileExtension == extension)
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
