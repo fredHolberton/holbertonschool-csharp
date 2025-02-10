@@ -72,14 +72,11 @@ public class ImageProcessor
         for (int i = 0; i < pixelBuffer.Length / 4; i++)
         {
             int x = i * 4;
-            byte blue = pixelBuffer[x];
-            byte green = pixelBuffer[x + 1];
-            byte red = pixelBuffer[x + 2];
-            byte alpha = pixelBuffer[x + 3];
-            pixelBuffer[x] = (byte)(255 - blue);
-            pixelBuffer[x + 1] = (byte)(255 - green);
-            pixelBuffer[x + 2]  = (byte)(255 - red);
-            pixelBuffer[x + 3] = (byte)(255 - alpha);
+
+            pixelBuffer[x] ^= 0xFF;
+            pixelBuffer[x + 1] ^= 0xFF;
+            pixelBuffer[x + 2] ^= 0xFF;
+            pixelBuffer[x + 3] ^= 0xFF;
         }
 
         System.Runtime.InteropServices.Marshal.Copy(pixelBuffer, 0, bmpData.Scan0, pixelBuffer.Length);
