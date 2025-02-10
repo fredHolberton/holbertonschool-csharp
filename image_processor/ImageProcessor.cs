@@ -46,7 +46,7 @@ public class ImageProcessor
                 string original_file_name = Path.GetFileNameWithoutExtension(filename);
                 string original_file_extension = Path.GetExtension(filename);
                 string invertedFileName = original_file_name + "_inverse" + original_file_extension;
-                image.Save(invertedFileName);
+                image.Save(invertedFileName, GetImageExtension(original_file_extension));
             }
         }
         catch (Exception ex)
@@ -103,5 +103,23 @@ public class ImageProcessor
         }
 
         return false;
+    }
+
+    /// <summary> Determine le format de l'image.</summary>
+    private static ImageFormat GetImageExtension(string extension)
+    {
+        /* Vérifier l'extension du fichier pour déterminer le format */
+        ImageFormat format = extension switch
+        {
+            ".jpg" => ImageFormat.Jpeg,
+            ".jpeg" => ImageFormat.Jpeg,
+            ".png" => ImageFormat.Png,
+            ".bmp" => ImageFormat.Bmp,
+            ".gif" => ImageFormat.Gif,
+            ".tiff" => ImageFormat.Tiff,
+            _ => throw new NotSupportedException("Format d'image non supporté")
+        };
+        /* Retourne le format spécifié */
+        return format;
     }
 }
