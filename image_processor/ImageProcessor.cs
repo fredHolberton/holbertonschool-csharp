@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Threading;
+using System.Threading.Tasks;
 using System.Drawing;
 using System.Drawing.Imaging;
 
@@ -9,26 +9,32 @@ public class ImageProcessor
     /// <summary> inverts an image’s color.</summary>
     public static void Inverse(string[] filenames)
     {
-        Thread[] threads = new Thread[filenames.Length];
+        //Thread[] threads = new Thread[filenames.Length];
+        var tasks = new Task[filenames.Length];
 
         for (int i = 0; i < filenames.Length; i++)
         {     
             if (isImage(Path.GetExtension(filenames[i])))
             {
                 int index = i;
-                threads[i] = new Thread(() => InvertImageColors(filenames[index]));
-                threads[i].Start();
+                //threads[i] = new Thread(() => InvertImageColors(filenames[index]));
+                //threads[i].Start();
+                tasks[i] = Task.Run(() =>
+                {
+                    InvertImageColors(filenames[index]);
+                });
             }
             
         }
 
         /* Attendre que tous les threads soient terminés */
-        foreach (Thread thread in threads)
-        {
+        //foreach (Thread thread in threads)
+        //{
             /* Bloque le programme jusqu'à ce que le thread soit terminé */
-            if (thread != null)
-                thread.Join();
-        }
+        //    if (thread != null)
+        //        thread.Join();
+        //}
+        Task.WhenAll(tasks).Wait();
     }
 
     /* process one image. */
@@ -54,7 +60,7 @@ public class ImageProcessor
                     byte green = pixelBuffer[x + 1];
                     byte red = pixelBuffer[x + 2];
                     byte alpha = pixelBuffer[x + 3];
-                    
+
                     pixelBuffer[x] = (byte)(255 - blue);
                     pixelBuffer[x + 1] = (byte)(255 - green);
                     pixelBuffer[x + 2]  = (byte)(255 - red);
