@@ -14,16 +14,20 @@ public class ImageProcessor
 
         for (int i = 0; i < filenames.Length; i++)
         {     
-            int index = i;
-            threads[i] = new Thread(() => InverseOneImage(filenames[index]));
-            threads[i].Start();
+            if (isImage(Path.GetExtension(filenames[i])))
+            {
+                int index = i;
+                threads[i] = new Thread(() => InverseOneImage(filenames[index]));
+                threads[i].Start();
+            }
         }
 
         /* Attendre que tous les threads soient terminés */
-        for (int i = 0; i < threads.Length; i++)
+        foreach (Thread thread in threads)
         {
             /* Bloque le programme jusqu'à ce que le thread soit terminé */
-            threads[i].Join();
+            if (thread != null)
+                thread.Join();
         }
     }
 
@@ -81,5 +85,23 @@ public class ImageProcessor
         System.Runtime.InteropServices.Marshal.Copy(pixelBuffer, 0, bmpData.Scan0, pixelBuffer.Length);
 
         image.UnlockBits(bmpData);
+    }
+
+    /// <summary> Return true if the file is an image.</summary>
+    private static bool isImage(string fileExtension)
+    {
+        string[] imageExtensions = new string[] { ".jpg", ".jpeg", ".png", ".gif", ".bmp", ".tiff", ".ico" };
+        fileExtension = fileExtension.ToLower();
+
+        /* Vérifier si l'extension est dans la liste des extensions d'images */
+        foreach (var extension in imageExtensions)
+        {
+            if (fileExtension == extension)
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
