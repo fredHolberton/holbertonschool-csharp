@@ -10,26 +10,40 @@ public class ImageProcessor
     /// <summary>Inverts each image’s color.</summary>
     public static void Inverse(string[] filenames)
     {
-        Thread[] threads = new Thread[filenames.Length];
-
-        for (int i = 0; i < filenames.Length; i++)
-        {     
-            if (isImage(Path.GetExtension(filenames[i])))
+        foreach (string filename in filenames)
+        {
+            try
             {
-                int index = i;
-                threads[i] = new Thread(() => InverseOneImage(filenames[index]));
-                threads[i].Start();
+                byte[] imageData = File.ReadAllBytes(filename);
+
+                byte[] invertedData = InvertColors(imageData);
+
+                string outputFilename = $"{Path.GetFileNameWithoutExtension(filename)}_inverse{Path.GetExtension(filename)}";
+                File.WriteAllBytes(outputFilename, invertedData);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error processing {filename}: {ex.Message}");
             }
         }
-
-        /* Attendre que tous les threads soient terminés */
-        foreach (Thread thread in threads)
-        {
-            /* Bloque le programme jusqu'à ce que le thread soit terminé */
-            if (thread != null)
-                thread.Join();
-        }
     }
+
+    private static byte[] InvertColors(byte[] imageData)  
+    {
+        byte[] invertedData = new byte[imageData.Length];
+        for (int i = 0; i < imageData.Length / 4; i++)
+        {
+            int x = i * 4;
+
+            invertedData[x] ^= 0xFF;
+            invertedData[x + 1] ^= 0xFF;
+            invertedData[x + 2] ^= 0xFF;
+            invertedData[x + 3] ^= 0xFF;
+        }
+        
+        return invertedData;
+    } 
+
 
     /// <summary>Converts each image to grayscale.</summary>
     public static void Grayscale(string[] filenames)
