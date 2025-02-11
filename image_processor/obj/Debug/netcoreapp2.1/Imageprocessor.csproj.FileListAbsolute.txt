@@ -1,6 +1,0 @@
-C:\Fred\Holberton\holbertonschool-csharp\image_processor\obj\Debug\netcoreapp2.1\Imageprocessor.csproj.AssemblyReference.cache
-C:\Fred\Holberton\holbertonschool-csharp\image_processor\obj\Debug\netcoreapp2.1\Imageprocessor.GeneratedMSBuildEditorConfig.editorconfig
-C:\Fred\Holberton\holbertonschool-csharp\image_processor\obj\Debug\netcoreapp2.1\Imageprocessor.AssemblyInfoInputs.cache
-C:\Fred\Holberton\holbertonschool-csharp\image_processor\obj\Debug\netcoreapp2.1\Imageprocessor.AssemblyInfo.cs
-C:\Fred\Holberton\holbertonschool-csharp\image_processor\obj\Debug\netcoreapp2.1\Imageprocessor.csproj.CoreCompileInputs.cache
-C:\Fred\Holberton\holbertonschool-csharp\image_processor\obj\Debug\netcoreapp2.1\Imageprocessor.sourcelink.json

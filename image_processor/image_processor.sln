@@ -2,7 +2,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.2.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "image_processor", "image_processor.csproj", "{7032F7EC-10BA-8537-4D2A-2EC5E27FFCC5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageProcessor", "ImageProcessor.csproj", "{95777B7C-AFA3-80AB-CE61-1D5A149EB2BA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -10,15 +10,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{7032F7EC-10BA-8537-4D2A-2EC5E27FFCC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7032F7EC-10BA-8537-4D2A-2EC5E27FFCC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7032F7EC-10BA-8537-4D2A-2EC5E27FFCC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7032F7EC-10BA-8537-4D2A-2EC5E27FFCC5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95777B7C-AFA3-80AB-CE61-1D5A149EB2BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95777B7C-AFA3-80AB-CE61-1D5A149EB2BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95777B7C-AFA3-80AB-CE61-1D5A149EB2BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95777B7C-AFA3-80AB-CE61-1D5A149EB2BA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {445002A5-49A8-4635-9BBD-2B7F643B155F}
+		SolutionGuid = {2B7F3252-A6D8-448B-9678-D3A24CD97289}
 	EndGlobalSection
 EndGlobal
