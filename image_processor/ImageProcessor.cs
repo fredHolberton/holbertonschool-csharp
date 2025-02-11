@@ -125,43 +125,50 @@ public class ImageProcessor
     /// <summary>Creates a thumbnail image based on a given height (in pixels).</summary>
     public static void Thumbnail(string[] filenames, int height)
     {
-        foreach (string filename in filenames)
-        {
-            try
-            {
-                Bitmap originalImage = new Bitmap(filename);
-                int newWidth = (int)((double)originalImage.Width / originalImage.Height * height);
-                byte[] imageData = File.ReadAllBytes(filename);
-                byte[] modifiedData = ThumbnailImage(imageData, newWidth, height);
+        Thread[] threads = new Thread[filenames.Length];
 
-                string outputFilename = $"{Path.GetFileNameWithoutExtension(filename)}_th{Path.GetExtension(filename)}";
-                File.WriteAllBytes(outputFilename, modifiedData);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error processing {filename}: {ex.Message}");
-            }
+        for (int i = 0; i < filenames.Length; i++)
+        {       
+            int index = i;
+            threads[i] = new Thread(() => ThumbnailImage(filenames[index], height));
+            threads[i].Start();  
         }
-        
+        /* Attendre que tous les threads soient terminés */
+        foreach (Thread thread in threads)
+        {
+            /* Bloque le programme jusqu'à ce que le thread soit terminé */
+            thread.Join();
+        }
     }
     
-    private static byte[] ThumbnailImage(byte[] imageData, int newWidth, int newHeight)  
+    private static void ThumbnailImage(string filename, int newHeight)  
     {
-        int newLength = newWidth * newHeight * 4;
-        int scale = imageData.Length / newLength;
-        byte[] modifiedData = new byte[newLength];
-
-        for (int i = 0; i < modifiedData.Length / 4; i++)
+        try
         {
-            int x = i * 4;
+            Bitmap originalImage = new Bitmap(filename);
+            int newWidth = (int)((double)originalImage.Width / originalImage.Height * newHeight);
+            byte[] imageData = File.ReadAllBytes(filename);
+            int newLength = newWidth * newHeight * 4;
+            int scale = imageData.Length / newLength;
+            byte[] modifiedData = new byte[newLength];
 
-            modifiedData[x] = imageData[x * scale];
-            modifiedData[x + 1] = imageData[x * scale + 1];
-            modifiedData[x + 2] = imageData[x * scale + 2];
-            modifiedData[x + 3] = imageData[x * scale + 3];
+            for (int i = 0; i < modifiedData.Length / 4; i++)
+            {
+                int x = i * 4;
+
+                modifiedData[x] = imageData[x * scale];
+                modifiedData[x + 1] = imageData[x * scale + 1];
+                modifiedData[x + 2] = imageData[x * scale + 2];
+                modifiedData[x + 3] = imageData[x * scale + 3];
+            }
+
+            string outputFilename = $"{Path.GetFileNameWithoutExtension(filename)}_th{Path.GetExtension(filename)}";
+            File.WriteAllBytes(outputFilename, modifiedData);
         }
-
-        return modifiedData;
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error processing {filename}: {ex.Message}");
+        }
     }
 
 }
