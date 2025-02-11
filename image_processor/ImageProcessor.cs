@@ -113,8 +113,6 @@ public class ImageProcessor
             double luminance = (double)(imageData[x] * 65536 + imageData[x + 1] * 256 + imageData[x + 2]);  
             double modifiedColor = (luminance >= threshold) ? 255 : 0;
 
-
-
             modifiedData[x] = (byte)modifiedColor;
             modifiedData[x + 1] = (byte)modifiedColor;
             modifiedData[x + 2] = (byte)modifiedColor;
@@ -123,4 +121,47 @@ public class ImageProcessor
 
         return modifiedData;
     }
+
+    /// <summary>Creates a thumbnail image based on a given height (in pixels).</summary>
+    public static void Thumbnail(string[] filenames, int height)
+    {
+        foreach (string filename in filenames)
+        {
+            try
+            {
+                Bitmap originalImage = new Bitmap(filename);
+                int newWidth = (int)((double)originalImage.Width / originalImage.Height * height);
+                byte[] imageData = File.ReadAllBytes(filename);
+                byte[] modifiedData = ThumbnailImage(imageData, newWidth, height);
+
+                string outputFilename = $"{Path.GetFileNameWithoutExtension(filename)}_th{Path.GetExtension(filename)}";
+                File.WriteAllBytes(outputFilename, modifiedData);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error processing {filename}: {ex.Message}");
+            }
+        }
+        
+    }
+    
+    private static byte[] ThumbnailImage(byte[] imageData, int newWidth, int newHeight)  
+    {
+        int newLength = newWidth * newHeight * 4;
+        int scale = imageData.Length / newLength;
+        byte[] modifiedData = new byte[newLength];
+
+        for (int i = 0; i < modifiedData.Length / 4; i++)
+        {
+            int x = i * 4;
+
+            modifiedData[x] = imageData[x * scale];
+            modifiedData[x + 1] = imageData[x * scale + 1];
+            modifiedData[x + 2] = imageData[x * scale + 2];
+            modifiedData[x + 3] = imageData[x * scale + 3];
+        }
+
+        return modifiedData;
+    }
+
 }
