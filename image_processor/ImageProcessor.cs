@@ -82,4 +82,45 @@ public class ImageProcessor
 
         return modifiedData;
     } 
+
+    /// <summary>Reduces each image to only black and white values, based on a given threshold.</summary>
+    public static void BlackWhite(string[] filenames, double threshold)
+    {
+        foreach (string filename in filenames)
+        {
+            try
+            {
+                byte[] imageData = File.ReadAllBytes(filename);
+
+                byte[] modifiedData = BlackWhiteColors(imageData, threshold);
+
+                string outputFilename = $"{Path.GetFileNameWithoutExtension(filename)}_bw{Path.GetExtension(filename)}";
+                File.WriteAllBytes(outputFilename, modifiedData);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error processing {filename}: {ex.Message}");
+            }
+        }
+    }
+
+    private static byte[] BlackWhiteColors(byte[] imageData, double threshold)  
+    {
+        byte[] modifiedData = new byte[imageData.Length];
+        for (int i = 0; i < imageData.Length / 4; i++)
+        {
+            int x = i * 4;
+            double luminance = (double)(imageData[x] * 65536 + imageData[x + 1] * 256 + imageData[x + 2]);  
+            double modifiedColor = (luminance >= threshold) ? 255 : 0;
+
+
+
+            modifiedData[x] = (byte)modifiedColor;
+            modifiedData[x + 1] = (byte)modifiedColor;
+            modifiedData[x + 2] = (byte)modifiedColor;
+            modifiedData[x + 3] = imageData[x + 3];
+        }
+
+        return modifiedData;
+    }
 }
