@@ -145,8 +145,8 @@ public class ImageProcessor
     {
         try
         {
-            Bitmap originalImage = new Bitmap(filename);
-            int newWidth = (int)((double)originalImage.Width / originalImage.Height * newHeight);
+            var image = Image.FromFile(filename);
+            int newWidth = (int)((double)image.Width / image.Height * newHeight);
             byte[] imageData = File.ReadAllBytes(filename);
             int newLength = newWidth * newHeight * 4;
             int scale = imageData.Length / newLength;
