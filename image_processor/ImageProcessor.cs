@@ -145,25 +145,36 @@ public class ImageProcessor
     {
         try
         {
-            var image = Image.FromFile(filename);
-            int newWidth = (int)((double)image.Width / image.Height * newHeight);
-            byte[] imageData = File.ReadAllBytes(filename);
-            int newLength = newWidth * newHeight * 4;
-            int scale = imageData.Length / newLength;
-            byte[] modifiedData = new byte[newLength];
-
-            for (int i = 0; i < modifiedData.Length / 4; i++)
+            using (var image = Image.FromFile(filename))
             {
-                int x = i * 4;
+                int newWidth = (int)((double)image.Width / image.Height * newHeight);
+                /*byte[] imageData = File.ReadAllBytes(filename);
+                int newLength = newWidth * newHeight * 4;
+                int scale = imageData.Length / newLength;
+                byte[] modifiedData = new byte[newLength];
 
-                modifiedData[x] = imageData[x * scale];
-                modifiedData[x + 1] = imageData[x * scale + 1];
-                modifiedData[x + 2] = imageData[x * scale + 2];
-                modifiedData[x + 3] = imageData[x * scale + 3];
+                for (int i = 0; i < modifiedData.Length / 4; i++)
+                {
+                    int x = i * 4;
+
+                    modifiedData[x] = imageData[x * scale];
+                    modifiedData[x + 1] = imageData[x * scale + 1];
+                    modifiedData[x + 2] = imageData[x * scale + 2];
+                    modifiedData[x + 3] = imageData[x * scale + 3];
+                }
+                
+                string outputFilename = $"{Path.GetFileNameWithoutExtension(filename)}_th{Path.GetExtension(filename)}";
+                File.WriteAllBytes(outputFilename, modifiedData);
+                */
+                /* Créer la miniature avec redimensionnement */
+                using (var thumbnail = image.GetThumbnailImage(newWidth, newHeight, () => false, IntPtr.Zero))
+                {
+                    /* Sauvegarder la miniature */
+                    string outputFilename = $"{Path.GetFileNameWithoutExtension(filename)}_th{Path.GetExtension(filename)}";
+                    thumbnail.Save(outputFilename);
+                }
             }
-
-            string outputFilename = $"{Path.GetFileNameWithoutExtension(filename)}_th{Path.GetExtension(filename)}";
-            File.WriteAllBytes(outputFilename, modifiedData);
+                
         }
         catch (Exception ex)
         {
