@@ -5,8 +5,13 @@
 /// </summary>
 public class Queue<T>
 {
+    /// First Node of the Queue.
     private Node head;
+
+    /// Last Node of the Queue.
     private Node tail;
+
+    /// Number of Nodes in the Queue.
     private int count;
 
     /// <summary>
@@ -14,9 +19,15 @@ public class Queue<T>
     /// </summary>
     public class Node
     {
+        /// <summary>Gets or sets the value of the Node.</summary>
         public T value = default(T);
+
+        /// <summary>Gets or sets the next Node in the Queue.</summary>
         public Node next = null;
 
+        /// <summary>
+        /// initialize a Node.
+        /// </summary>
         public Node(T value)
         {
             this.value = value;
