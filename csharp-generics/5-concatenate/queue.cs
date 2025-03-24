@@ -151,7 +151,9 @@ public class Queue<T>
         for (int i = 0; i < count; i++)
         {
             
-            returnValue = returnValue + " " + currentNode.value;
+            returnValue = returnValue + currentNode.value;
+            if (typeQueue == typeof(String))
+                returnValue = returnValue + " ";
             currentNode = currentNode.next;
         }
         return returnValue.Trim();
