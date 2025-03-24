@@ -17,9 +17,17 @@ public class Queue<T>
         public T? value;
         public Node? next;
 
-        public Node(T? value)
+        public Node(T value)
         {
-            this.value = value;
+            if (value == null)
+            {
+                this.value = default(T);
+            }
+            else
+            {
+                this.value = value;
+            }
+            
             this.next = null;
         }
 
