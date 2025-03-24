@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 /// <summary>This class should not inherit from other classes or interfaces.</summary>
 public class Queue<T>
