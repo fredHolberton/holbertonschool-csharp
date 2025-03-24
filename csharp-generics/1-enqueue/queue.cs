@@ -1,12 +1,17 @@
 ﻿using System;
 
-/// <summary>This class should not inherit from other classes or interfaces.</summary>
+/// <summary>
+/// This class should not inherit from other classes or interfaces.
+/// </summary>
 public class Queue<T>
 {
     private Node head;
     private Node tail;
     private int count;
 
+    /// <summary>
+    /// Subclass to manage Queue elements.
+    /// </summary>
     public class Node
     {
         public T value;
@@ -23,7 +28,6 @@ public class Queue<T>
             this.value = default(T);
             this.next = null;
         }
-
     }
 
     /// <summary>
@@ -31,7 +35,7 @@ public class Queue<T>
     /// </summary>
     public Type CheckType()
     {
-        return  typeof(T);
+        return typeof(T);
     }
 
     /// <summary>
