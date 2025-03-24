@@ -14,8 +14,8 @@ public class Queue<T>
     /// </summary>
     public class Node
     {
-        public T? value;
-        public Node? next;
+        public T? value = default(T);
+        public Node? next = null;
 
         public Node(T value)
         {
@@ -27,14 +27,6 @@ public class Queue<T>
             {
                 this.value = value;
             }
-            
-            this.next = null;
-        }
-
-        public Node()
-        {
-            this.value = default(T);
-            this.next = null;
         }
     }
 
