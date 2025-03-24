@@ -5,8 +5,8 @@
 /// </summary>
 public class Queue<T>
 {
-    private Node? head;
-    private Node? tail;
+    private Node head;
+    private Node tail;
     private int count;
 
     /// <summary>
@@ -14,10 +14,10 @@ public class Queue<T>
     /// </summary>
     public class Node
     {
-        public T? value = default(T);
-        public Node? next = null;
+        public T value = default(T);
+        public Node next = null;
 
-        public Node(T? value)
+        public Node(T value)
         {
             if (value != null)
             {
@@ -39,7 +39,7 @@ public class Queue<T>
     /// </summary>
     public void Enqueue(T value)
     {
-        Node? newNode = new Node(value);
+        Node newNode = new Node(value);
         if (tail == null)
         {
             head = newNode;
