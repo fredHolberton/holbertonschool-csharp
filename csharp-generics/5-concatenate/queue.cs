@@ -129,7 +129,7 @@ public class Queue<T>
     }
 
     /// <summary>
-    /// Prints the queue, starting from the head.
+    /// Concatenates all values in the queue only if the queue is of type String or Char.
     /// </summary>
     public string Concatenate()
     {
@@ -151,7 +151,7 @@ public class Queue<T>
         for (int i = 0; i < count; i++)
         {
             
-            returnValue += " " + currentNode.value;
+            returnValue = returnValue + " " + currentNode.value;
             currentNode = currentNode.next;
         }
         return returnValue.Trim();
