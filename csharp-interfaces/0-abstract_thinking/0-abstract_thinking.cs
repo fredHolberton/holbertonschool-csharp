@@ -6,7 +6,7 @@
 abstract class Base
 {
     /// <summary>String name property.</summary>
-    public string name;
+    public string name = String.Empty;
 
     /// <summary>Overrides Base method ToString to print information about name.</summary>
     public override string ToString()
