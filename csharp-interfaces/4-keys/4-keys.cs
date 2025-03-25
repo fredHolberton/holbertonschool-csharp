@@ -133,7 +133,7 @@ public class Decoration : Base, IInteractive, IBreakable
 }
 
 /// <summary>
-/// Door class that inherits Base and implements IInteractive.
+/// Key class that inherits Base and implements ICollectable.
 /// </summary>
 public class Key : Base, ICollectable
 {
@@ -158,7 +158,7 @@ public class Key : Base, ICollectable
         }
         else
         {
-            Console.WriteLine("You have already picked up the {0}.", this.name);
+            Console.WriteLine("You have already picked up the " + this.name);
         }
     }
 }
