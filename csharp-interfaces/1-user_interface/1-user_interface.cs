@@ -41,7 +41,9 @@ abstract class Base
     /// <summary>String name property.</summary>
     public string name = String.Empty;
 
-    /// <summary>Overrides Base method ToString to print information about name.</summary>
+    /// <summary>
+    /// Overrides Base method ToString to print information about name.
+    /// </summary>
     public override string ToString()
     {
         return name + " is a " + this.GetType();
@@ -50,10 +52,14 @@ abstract class Base
 
 class TestObject : Base, IInteractive, IBreakable, ICollectable
 {
-    /// <summary>Implementation of durability property of IBreakable.</summary>
+    /// <summary>
+    /// Implementation of durability property of IBreakable.
+    /// </summary>
     public int durability { get; set; }
 
-    /// <summary>Implementation of isCollected property of ICollectable</summary>
+    /// <summary>
+    /// Implementation of isCollected property of ICollectable.
+    /// </summary>
     public bool isCollected { get; set; }
 
     /// <summary>Implementation of Interact method of IInteractive</summary>
