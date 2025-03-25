@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 /// <summary>
 /// Interface to interact.
@@ -167,7 +168,7 @@ public class Key : Base, ICollectable
 }
 
 /// <summary>
-/// Key class that inherits Base and implements ICollectable.
+/// RoomObjects class that iterate a list of room objects.
 /// </summary>
 public static class RoomObjects
 {
@@ -177,14 +178,10 @@ public static class RoomObjects
     /// </summary>
     public static void IterateAction(List<Base> roomObjects, Type type)
     {
-        /* Iterate through each object in the list */
         foreach (var obj in roomObjects)
         {
-            /* Check if the object implements the interface specified */
-            /* by the 'type' */
             if (type.IsAssignableFrom(obj.GetType()))
             {
-                /* Call the appropriate method based on the interface */
                 if (type == typeof(IInteractive) && 
                     obj is IInteractive interactiveObj)
                 {
