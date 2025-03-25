@@ -15,11 +15,7 @@ interface IInteractive
 interface IBreakable
 {
     /// <summary>Durability property to be implemented.</summary>
-    int durability
-    {
-        get;
-        set;
-    }
+    int durability {get; set;}
 
     /// <summary>Break method to be implemented.</summary>
     void Break();
@@ -31,11 +27,7 @@ interface IBreakable
 interface ICollectable
 {
     /// <summary>Boolean property isCollected to be implemented.</summary>
-    bool isCollected
-    {
-        get;
-        set;
-    }
+    bool isCollected {get; set;}
 
     /// <summary>Collect method to be implemented.</summary>
     void Collect();
@@ -70,19 +62,19 @@ class TestObject : Base, IInteractive, IBreakable, ICollectable
     /// <summary>Implementation of Interact method of IInteractive</summary>
     public void Interact()
     {
-        // Add here code of the implementation
+        /* Add here code of the implementation */
     }
 
     /// <summary>Implementation of Break method of IBreakable</summary>
     public void Break()
     {
-        // Add here code of the implementation
+        /* Add here code of the implementation */
     }
 
     /// <summary>Implementation of Collect method of ICollectable</summary>
     public void Collect()
     {
-        // Add here code of the implementation
+        /* Add here code of the implementation */
     }
 
 }
