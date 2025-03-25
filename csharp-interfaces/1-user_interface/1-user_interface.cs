@@ -50,9 +50,6 @@ abstract class Base
 
 class TestObject : Base, IInteractive, IBreakable, ICollectable
 {
-    /// <summary>Implementation of name property of class Base.</summary>
-    public string name { get; set; }
-    
     /// <summary>Implementation of durability property of IBreakable.</summary>
     public int durability { get; set; }
 
