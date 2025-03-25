@@ -51,25 +51,25 @@ abstract class Base
 class TestObject : Base, IInteractive, IBreakable, ICollectable
 {
     /// <summary>Implementation of durability property of IBreakable.</summary>
-    public int durability { get; set; }
+    public int IBreakable.durability { get; set; }
 
     /// <summary>Implementation of isCollected property of ICollectable</summary>
-    public bool isCollected { get; set; }
+    public bool ICollectable.isCollected { get; set; }
 
     /// <summary>Implementation of Interact method of IInteractive</summary>
-    public void Interact()
+    public void IInteractive.Interact()
     {
         /* Add here code of the implementation */
     }
 
     /// <summary>Implementation of Break method of IBreakable</summary>
-    public void Break()
+    public void IBreakable.Break()
     {
         /* Add here code of the implementation */
     }
 
     /// <summary>Implementation of Collect method of ICollectable</summary>
-    public void Collect()
+    public void ICollectable.Collect()
     {
         /* Add here code of the implementation */
     }
