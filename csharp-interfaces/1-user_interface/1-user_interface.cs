@@ -3,7 +3,7 @@
 /// <summary>
 /// Interface to interact.
 /// </summary>
-interface IInteractive
+public interface IInteractive
 {
     /// <summary>Interact method to be implemented.</summary>
     void Interact();
@@ -12,7 +12,7 @@ interface IInteractive
 /// <summary>
 /// Interface to break.
 /// </summary>
-interface IBreakable
+public interface IBreakable
 {
     /// <summary>Durability property to be implemented.</summary>
     int durability {get; set;}
@@ -24,7 +24,7 @@ interface IBreakable
 /// <summary>
 /// Interface to Collect.
 /// </summary>
-interface ICollectable
+public interface ICollectable
 {
     /// <summary>Boolean property isCollected to be implemented.</summary>
     bool isCollected {get; set;}
@@ -36,10 +36,10 @@ interface ICollectable
 /// <summary>
 /// This class is abstract and can't be instanciated.
 /// </summary>
-abstract class Base
+public abstract class Base
 {
     /// <summary>String name property.</summary>
-    public string name = String.Empty;
+    public string name {get; set;}
 
     /// <summary>
     /// Overrides Base method ToString to print information about name.
@@ -53,7 +53,7 @@ abstract class Base
 /// <summary>
 /// Test class to inherite Base and implement Interfaces.
 /// </summary>
-class TestObject : Base, IInteractive, IBreakable, ICollectable
+public class TestObject : Base, IInteractive, IBreakable, ICollectable
 {
     /// <summary>
     /// Implementation of durability property of IBreakable.
