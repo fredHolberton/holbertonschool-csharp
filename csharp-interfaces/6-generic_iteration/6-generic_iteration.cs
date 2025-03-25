@@ -221,6 +221,7 @@ public class Objs<T> : IEnumerable<T>
     /// <summary>
     /// Explicit non-generic IEnumerator implementation
     /// for non-generic collections.
+    /// This is necessary for the IEnumerable interface.
     /// </summary>
     IEnumerator IEnumerable.GetEnumerator()
     {
