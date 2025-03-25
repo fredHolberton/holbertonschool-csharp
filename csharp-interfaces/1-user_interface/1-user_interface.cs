@@ -50,6 +50,9 @@ abstract class Base
     }
 }
 
+/// <summary>
+/// Test class to inherite Base and implement Interfaces.
+/// </summary>
 class TestObject : Base, IInteractive, IBreakable, ICollectable
 {
     /// <summary>
