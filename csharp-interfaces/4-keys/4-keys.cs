@@ -151,15 +151,17 @@ public class Key : Base, ICollectable
     /// <summary>Implementation of Collect method of ICollectable</summary>
     public void Collect()
     {
-        if (!this.isCollected)
+        string msg;
+        if (this.isCollected == false)
         {
             this.isCollected = true;
-            Console.WriteLine("You pick up the {0}.", this.name);
+            msg = "You pick up the {0}.", this.name;
         }
         else
         {
-            Console.WriteLine("You have already picked up the " + this.name);
+            msg = "You have already picked up the {0}.", this.name;
         }
+        Console.WriteLine(msg);
     }
 }
 
