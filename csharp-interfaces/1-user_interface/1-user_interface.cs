@@ -58,13 +58,17 @@ abstract class Base
 
 class TestObject : Base, IInteractive, IBreakable, ICollectable
 {
-    /// <summary>Implementation of durability property of IBreakable</summary>
+    /// Implementation of durability property of IBreakable.
     private int IBreakable.durability = 0;
 
+    /// <summary>Access to Implementation of durability property.</summary>
     public int get_durability()
     {
+
         return this.durability;
     }
+    
+    /// <summary>Set the Implemented durability property.</summary>
     public void set_durability(int value)
     {
         this.durability = value;
@@ -73,10 +77,13 @@ class TestObject : Base, IInteractive, IBreakable, ICollectable
     /// <summary>Implementation of isCollected property of ICollectable</summary>
     private bool ICollectable.isCollected = false;
 
+    /// <summary>Access to Implementation of isCollected property.</summary>
     public bool get_isCollected()
     {
         return this.isCollected;
     }
+    
+    /// <summary>Set the Implemented isCollected property.</summary>
     public void set_isCollected(bool value)
     {
         this.isCollected = value;
