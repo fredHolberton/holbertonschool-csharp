@@ -142,6 +142,7 @@ public class Key : Base, ICollectable
     /// </summary>
     public bool isCollected { get; set; }
 
+    /// <summary>Constructor that sets the properties</summary>
     public Key(string name = "Key", bool isCollected = false)
     {
         this.name = name;
