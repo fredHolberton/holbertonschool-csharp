@@ -210,8 +210,7 @@ public class Objs<T> : IEnumerable<T>
     
     
     /// <summary>
-    /// Implementation of the GetEnumerator method to enable
-    /// foreach iteration.
+    /// Implements GetEnumerator method to enable foreach iteration.
     /// </summary>
     public IEnumerator<T> GetEnumerator()
     {
@@ -220,8 +219,6 @@ public class Objs<T> : IEnumerable<T>
 
     /// <summary>
     /// Explicit non-generic IEnumerator implementation
-    /// for non-generic collections.
-    /// This is necessary for the IEnumerable interface.
     /// </summary>
     IEnumerator IEnumerable.GetEnumerator()
     {
