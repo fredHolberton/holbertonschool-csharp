@@ -155,11 +155,11 @@ public class Key : Base, ICollectable
         if (this.isCollected == false)
         {
             this.isCollected = true;
-            msg = "You pick up the {0}.", this.name;
+            msg = "You pick up the " + this.name + ".";
         }
         else
         {
-            msg = "You have already picked up the {0}.", this.name;
+            msg = "You have already picked up the " + this.name + ".";
         }
         Console.WriteLine(msg);
     }
