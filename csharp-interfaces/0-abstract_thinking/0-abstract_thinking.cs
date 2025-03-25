@@ -11,6 +11,6 @@ abstract class Base
     /// <summary>Overrides Base method ToString to print information about name.</summary>
     public override string ToString()
     {
-        return name + " is a String";
+        return name + " is a " + this.GetType();
     }
 }
