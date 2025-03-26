@@ -200,17 +200,13 @@ public class Objs<T> : IEnumerable<T>
         items.Add(item);
     }
     
-    /// <summary>
     /// Implements GetEnumerator method to enable foreach iteration.
-    /// </summary>
     IEnumerator<T> IEnumerable<T>.GetEnumerator()
     {
         return items.GetEnumerator();
     }
 
-    /// <summary>
     /// Explicit non-generic IEnumerator implementation
-    /// </summary>
     IEnumerator IEnumerable.GetEnumerator()
     {
         return items.GetEnumerator();
