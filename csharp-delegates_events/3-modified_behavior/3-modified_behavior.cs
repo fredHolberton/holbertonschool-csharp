@@ -25,9 +25,6 @@ public delegate void CalculateHealth(float amount);
 /// <summary>
 /// Delegate to mofifier baseValue
 /// </summary>
-/// <param name="baseValue"></param>
-/// <param name="modifier"></param>
-/// <returns></returns>
 public delegate float CalculateModifier(float baseValue, Modifier modifier);
 
 /// <summary>
@@ -117,9 +114,9 @@ public class Player
     /// </summary>
     public float ApplyModifier(float baseValue, Modifier modifier)
     {
-        if (modifier is Modifier.Weak)
+        if (modifier == Modifier.Weak)
             return baseValue / 2f;
-        else if (modifier is Modifier.Base)
+        else if (modifier == Modifier.Base)
             return baseValue; 
         else
             return baseValue * 1.5f;
