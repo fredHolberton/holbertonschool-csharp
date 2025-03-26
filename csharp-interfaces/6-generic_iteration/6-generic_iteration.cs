@@ -176,7 +176,7 @@ public class Key : Base, ICollectable
 
 
 /// <summary>
-/// Objs<T> class that creates a collection of type T objects
+/// Class that creates a collection of type T objects.
 /// </summary>
 /// <typeparam name="T"></typeparam>
 public class Objs<T> : IEnumerable<T>
