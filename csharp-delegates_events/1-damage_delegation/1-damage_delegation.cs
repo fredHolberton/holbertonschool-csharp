@@ -46,11 +46,11 @@ public class Player
     {
         if (damage <= 0)
         {
-            Console.WriteLine("{0} <name> takes 0 damage!", this.name);
+            Console.WriteLine("{0} takes 0 damage!", this.name);
         }
         else
         {
-            Console.WriteLine("{0} <name> takes {1} damage!", this.name, damage);
+            Console.WriteLine("{0} takes {1} damage!", this.name, damage);
         }
     }
 
