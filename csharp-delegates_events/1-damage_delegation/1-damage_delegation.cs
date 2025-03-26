@@ -51,6 +51,9 @@ public class Player
         }
     }
 
+    /// <summary>
+    /// Print heal. If heal is negative, the Player takes 0 heal.
+    /// </summary>
     public void HealDamage(float heal)
     {
         if (heal <= 0)
