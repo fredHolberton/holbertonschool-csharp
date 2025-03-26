@@ -64,13 +64,15 @@ public class Player
     private string status;
 
     /// <summary>
-    /// EventHandler of type CurrentHPArgs 
+    /// EventHandler of type CurrentHPArgs
     /// </summary>
     public event EventHandler<CurrentHPArgs> HPCheck;
 
     /// <summary>constructor to initialize properties.</summary>
     public Player(string name = "Player", float maxHp = 100f)
     {
+        this.HPCheck += CheckStatus;
+
         this.name = name;
         this.maxHp = maxHp;
         if (this.maxHp <= 0)
@@ -80,8 +82,6 @@ public class Player
         }
         this.hp = this.maxHp;
         this.status = this.name + " is ready to go!";
-
-        this.HPCheck += CheckStatus;
     }
 
     /// <summary>
