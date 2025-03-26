@@ -28,17 +28,17 @@ public delegate void CalculateHealth(float amount);
 public delegate float CalculateModifier(float baseValue, Modifier modifier);
 
 /// <summary>
-/// public class CurrentHPArgs to manager event arguments from hp
+/// public class CurrentHPArgs to manager event arguments from hp.
 /// </summary>
 public class CurrentHPArgs : EventArgs
 {
     /// <summary>
-    /// currentHp property, read only
+    /// currentHp property, read only.
     /// </summary>
     public float currentHp { get; }
 
     /// <summary>
-    /// constructor to set properties
+    /// constructor to set properties.
     /// </summary>
     public CurrentHPArgs(float newHp)
     {
@@ -47,7 +47,7 @@ public class CurrentHPArgs : EventArgs
 }
 
 /// <summary>
-/// public class Player
+/// public class Player.
 /// </summary>
 public class Player
 {
@@ -64,7 +64,7 @@ public class Player
     private string status;
 
     /// <summary>
-    /// EventHandler of type CurrentHPArgs
+    /// EventHandler of type CurrentHPArgs.
     /// </summary>
     public event EventHandler<CurrentHPArgs> HPCheck;
 
@@ -84,9 +84,7 @@ public class Player
         this.status = this.name + " is ready to go!";
     }
 
-    /// <summary>
-    /// private method to check status of player
-    /// </summary>
+    /// private method to check status of player.
     private void CheckStatus(object sender, CurrentHPArgs e)
     {
         if (e.currentHp == this.maxHp)
