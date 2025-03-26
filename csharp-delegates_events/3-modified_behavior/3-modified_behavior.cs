@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 /// <summary>
 /// Enumeration of modifiers
-/// </summary> <summary>
+/// </summary>
 public enum Modifier
 {
     /// <summary>Weak modifier.</summary>
