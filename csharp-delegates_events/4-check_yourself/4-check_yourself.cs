@@ -81,7 +81,6 @@ public class Player
         this.hp = this.maxHp;
         status = this.name + " is ready to go!";
 
-        /* Assigns CheckStatus method to HPCheck event */
         this.HPCheck += CheckStatus;
     }
 
@@ -139,10 +138,7 @@ public class Player
         else
             this.hp = newHp;
 
-        /* Create event argument with current hp value */
         CurrentHPArgs args = new CurrentHPArgs(this.hp);
-
-        /* trigger the HPCheck event */
         HPCheck?.Invoke(this, args);
     }
 
