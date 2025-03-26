@@ -182,7 +182,7 @@ public class Key : Base, ICollectable
 /// <typeparam name="T"></typeparam>
 public class Objs<T> : IEnumerable<T>
 {
-    /// Collection of type T objects 
+    /* Collection of type T objects */
     private List<T> items;
 
     /// <summary>
