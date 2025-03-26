@@ -9,6 +9,9 @@ public delegate void CalculateHealth(float amount);
 /// <summary>
 /// Delegate to mofifier baseValue
 /// </summary>
+/// <param name="baseValue"></param>
+/// <param name="modifier"></param>
+/// <returns></returns>
 public delegate float CalculateModifier(float baseValue, Modifier modifier);
 
 /// <summary>
@@ -16,9 +19,14 @@ public delegate float CalculateModifier(float baseValue, Modifier modifier);
 /// </summary> <summary>
 public enum Modifier
 {
-    Weak = 0,
-    Base = 1,
-    Strong = 2
+    /// <summary>Weak modifier.</summary>
+    Weak,
+
+    /// <summary>Base modifier.</summary>
+    Base,
+
+    /// <summary>Strong modifier.</summary>
+    Strong
 }
 
 /// <summary>
