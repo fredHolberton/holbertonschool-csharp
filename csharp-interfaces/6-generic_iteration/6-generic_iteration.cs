@@ -196,7 +196,7 @@ public class Objs<T> : IEnumerable<T>
     /// <summary>
     /// Implements GetEnumerator method to enable foreach iteration.
     /// </summary>
-    IEnumerator<T> IEnumerable<T>.GetEnumerator()
+    public IEnumerator<T> IEnumerable<T>.GetEnumerator()
     {
         return items.GetEnumerator();
     }
