@@ -199,14 +199,30 @@ public class Objs<T> : IEnumerable<T>
     {
         this.items.Add(item);
     }
+
+    /// <summary>
+    /// Method to get the count of items in the collection
+    /// </summary>
+    public int Count()
+    {
+        return this.items.Count;
+    }
+
+    /// <summary>
+    /// Method to remove an item from the collection
+    /// </summary>
+    public bool Remove(T item)
+    {
+        return this.items.Remove(item);
+    }
     
-    /// Implements GetEnumerator method to enable foreach iteration.
+    /* Implements GetEnumerator method to enable foreach iteration. */
     IEnumerator<T> IEnumerable<T>.GetEnumerator()
     {
         return this.items.GetEnumerator();
     }
 
-    /// Explicit non-generic IEnumerator implementation
+    /* Explicit non-generic IEnumerator implementation */
     IEnumerator IEnumerable.GetEnumerator()
     {
         return this.items.GetEnumerator();
