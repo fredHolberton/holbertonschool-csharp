@@ -189,7 +189,7 @@ public class Objs<T> : IEnumerable<T>
     /// </summary>
     public Objs()
     {
-        items = new List<T>();
+        this.items = new List<T>();
     }
 
     /// <summary>
@@ -197,19 +197,19 @@ public class Objs<T> : IEnumerable<T>
     /// </summary>
     public void Add(T item)
     {
-        items.Add(item);
+        this.items.Add(item);
     }
     
     /// Implements GetEnumerator method to enable foreach iteration.
     IEnumerator<T> IEnumerable<T>.GetEnumerator()
     {
-        return items.GetEnumerator();
+        return this.items.GetEnumerator();
     }
 
     /// Explicit non-generic IEnumerator implementation
     IEnumerator IEnumerable.GetEnumerator()
     {
-        return items.GetEnumerator();
+        return this.items.GetEnumerator();
     }
 }
 
