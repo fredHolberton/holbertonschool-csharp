@@ -84,6 +84,23 @@ public class Player
         this.HPCheck += CheckStatus;
     }
 
+    /* private method to check status of player */
+    private void CheckStatus(object sender, CurrentHPArgs e)
+    {
+        if (e.currentHp == this.maxHp)
+            this.status = this.name + " is in perfect health!";
+        else if ((e.currentHp >= this.maxHp / 2f) && e.currentHp < this.maxHp)
+            this.status = this.name + " is doing well!";
+        else if ((e.currentHp >= this.maxHp / 4f) && (e.currentHp < this.maxHp / 2f))
+            this.status = this.name + " isn't doing too great...";
+        else if ((e.currentHp > 0) && (e.currentHp < this.maxHp / 4f))
+            this.status = this.name + " needs help!";
+        else
+            this.status = this.name + " is knocked out!";
+
+        Console.WriteLine(this.status);
+    }
+
     /// <summary>Method to print health of player.</summary>
     public void PrintHealth()
     {
@@ -153,23 +170,6 @@ public class Player
             return baseValue; 
         else
             return baseValue * 1.5f;
-    }
-
-    /* private method to check status of player */
-    private void CheckStatus(object sender, CurrentHPArgs e)
-    {
-        if (e.currentHp == this.maxHp)
-            this.status = this.name + " is in perfect health!";
-        else if ((e.currentHp >= this.maxHp / 2f) && e.currentHp < this.maxHp)
-            this.status = this.name + " is doing well!";
-        else if ((e.currentHp >= this.maxHp / 4f) && (e.currentHp < this.maxHp / 2f))
-            this.status = this.name + " isn't doing too great...";
-        else if ((e.currentHp > 0) && (e.currentHp < this.maxHp / 4f))
-            this.status = this.name + " needs help!";
-        else
-            this.status = this.name + " is knocked out!";
-
-        Console.WriteLine(this.status);
     }
 }
 
