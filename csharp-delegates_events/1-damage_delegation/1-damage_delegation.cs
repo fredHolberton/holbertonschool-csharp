@@ -1,5 +1,8 @@
 ﻿using System;
 
+/// <summary>
+/// Delegate to calculate Health
+/// </summary>
 public delegate void CalculateHealth(float amount);
 
 /// <summary>
