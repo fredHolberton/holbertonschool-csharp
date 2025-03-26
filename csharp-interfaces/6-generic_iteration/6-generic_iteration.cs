@@ -11,6 +11,7 @@ public interface IInteractive
     void Interact();
 }
 
+
 /// <summary>
 /// Interface to break.
 /// </summary>
@@ -23,6 +24,7 @@ public interface IBreakable
     void Break();
 }
 
+
 /// <summary>
 /// Interface to Collect.
 /// </summary>
@@ -34,6 +36,7 @@ public interface ICollectable
     /// <summary>Collect method to be implemented.</summary>
     void Collect();
 }
+
 
 /// <summary>
 /// This class is abstract and can't be instanciated.
@@ -51,6 +54,7 @@ public abstract class Base
         return name + " is a " + this.GetType();
     }
 }
+
 
 /// <summary>
 /// Door class that inherits Base and implements IInteractive.
@@ -70,6 +74,7 @@ public class Door : Base, IInteractive
     }
 
 }
+
 
 /// <summary>
 /// Decoration class that inherits Base and implements IInteractive and IBreakable.
@@ -134,6 +139,7 @@ public class Decoration : Base, IInteractive, IBreakable
     } 
 }
 
+
 /// <summary>
 /// Key class that inherits Base and implements ICollectable.
 /// </summary>
@@ -168,6 +174,7 @@ public class Key : Base, ICollectable
     }
 }
 
+
 /// <summary>
 /// Objs<T> class that creates a collection of type T objects 
 /// that can be iterated through using foreach.
@@ -196,7 +203,7 @@ public class Objs<T> : IEnumerable<T>
     /// <summary>
     /// Implements GetEnumerator method to enable foreach iteration.
     /// </summary>
-    public IEnumerator<T> IEnumerable<T>.GetEnumerator()
+    IEnumerator<T> IEnumerable<T>.GetEnumerator()
     {
         return items.GetEnumerator();
     }
