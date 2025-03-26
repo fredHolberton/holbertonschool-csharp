@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 
 /// <summary>
@@ -191,28 +192,11 @@ public class Objs<T> : IEnumerable<T>
     {
         items.Add(item);
     }
-
-    /// <summary>
-    /// Removes an item from the collection.
-    /// </summary>
-    public bool Remove(T item)
-    {
-        return items.Remove(item);
-    }
-
-    /// <summary>
-    /// Returns the number of items in the collection.
-    /// </summary>
-    public int Count
-    {
-        get { return items.Count; }
-    }
-    
     
     /// <summary>
     /// Implements GetEnumerator method to enable foreach iteration.
     /// </summary>
-    public IEnumerator<T> GetEnumerator()
+    IEnumerator<T> IEnumerable<T>.GetEnumerator()
     {
         return items.GetEnumerator();
     }
@@ -222,7 +206,7 @@ public class Objs<T> : IEnumerable<T>
     /// </summary>
     IEnumerator IEnumerable.GetEnumerator()
     {
-        return GetEnumerator();
+        return items.GetEnumerator();
     }
 }
 
