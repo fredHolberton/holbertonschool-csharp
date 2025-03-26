@@ -1,5 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 
+/// <summary>
+/// Delegate to calculate Health
+/// </summary>
+public delegate void CalculateHealth(float amount);
 
 /// <summary>
 /// public class Player
@@ -33,11 +38,6 @@ public class Player
     {
         Console.WriteLine("{0} has {1} / {2} health", this.name, this.hp, this.maxHp);
     }
-
-    /// <summary>
-    /// Delegate to calculate Health
-    /// </summary>
-    public delegate void CalculateHealth(float amount);
 
     /// <summary>
     /// Print damage. If damage is negative, the Player takes 0 damage.
