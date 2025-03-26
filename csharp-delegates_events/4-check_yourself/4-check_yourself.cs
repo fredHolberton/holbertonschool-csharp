@@ -79,12 +79,14 @@ public class Player
             Console.WriteLine("maxHp must be greater than 0. maxHp set to 100f by default.");
         }
         this.hp = this.maxHp;
-        status = this.name + " is ready to go!";
+        this.status = this.name + " is ready to go!";
 
         this.HPCheck += CheckStatus;
     }
 
-    /* private method to check status of player */
+    /// <summary>
+    /// private method to check status of player
+    /// </summary>
     private void CheckStatus(object sender, CurrentHPArgs e)
     {
         if (e.currentHp == this.maxHp)
@@ -93,7 +95,7 @@ public class Player
             this.status = this.name + " is doing well!";
         else if ((e.currentHp >= this.maxHp / 4f) && (e.currentHp < this.maxHp / 2f))
             this.status = this.name + " isn't doing too great...";
-        else if ((e.currentHp > 0) && (e.currentHp < this.maxHp / 4f))
+        else if ((e.currentHp > 0f) && (e.currentHp < this.maxHp / 4f))
             this.status = this.name + " needs help!";
         else
             this.status = this.name + " is knocked out!";
