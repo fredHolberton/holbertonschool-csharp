@@ -202,16 +202,19 @@ public class Objs<T> : IEnumerable<T>
     }
 
     /// <summary>
-    /// Method to get the count of items in the collection
+    /// Count the number of items in the collection
     /// </summary>
+    /// <returns>int: number of items</returns>
     public int Count()
     {
         return this.items.Count;
     }
 
     /// <summary>
-    /// Method to remove an item from the collection
+    /// Remove item from the collection
     /// </summary>
+    /// <param name="item"></param>
+    /// <returns>bool: true if OK</returns>
     public bool Remove(T item)
     {
         return this.items.Remove(item);
