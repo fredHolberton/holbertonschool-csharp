@@ -1,18 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 
-/// <summary>
-/// Delegate to calculate Health
-/// </summary>
-public delegate void CalculateHealth(float amount);
-
-/// <summary>
-/// Delegate to mofifier baseValue
-/// </summary>
-/// <param name="baseValue"></param>
-/// <param name="modifier"></param>
-/// <returns></returns>
-public delegate float CalculateModifier(float baseValue, Modifier modifier);
 
 /// <summary>
 /// Enumeration of modifiers
@@ -28,6 +16,19 @@ public enum Modifier
     /// <summary>Strong modifier.</summary>
     Strong
 }
+
+/// <summary>
+/// Delegate to calculate Health
+/// </summary>
+public delegate void CalculateHealth(float amount);
+
+/// <summary>
+/// Delegate to mofifier baseValue
+/// </summary>
+/// <param name="baseValue"></param>
+/// <param name="modifier"></param>
+/// <returns></returns>
+public delegate float CalculateModifier(float baseValue, Modifier modifier);
 
 /// <summary>
 /// public class Player
