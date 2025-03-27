@@ -11,4 +11,8 @@
 - Delegates and events
 - etc...
 
+### About myself:
+- Frédéric Urbani
+- LikedIn : https://www.linkedin.com/in/fr%C3%A9d%C3%A9ric-urbani-16211759/
+
 
