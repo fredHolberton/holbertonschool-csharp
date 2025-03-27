@@ -121,8 +121,8 @@ public class Player
         {
             newHp -= damage;
             Console.WriteLine("{0} takes {1} damage!", this.name, damage);
-            ValidateHP(newHp);
         }
+        ValidateHP(newHp);
     }
 
     /// <summary>
@@ -139,8 +139,8 @@ public class Player
         {
             newHp += heal;
             Console.WriteLine("{0} heals {1} HP!", this.name, heal);
-            ValidateHP(newHp);
         }
+        ValidateHP(newHp);
     }
 
     /// <summary>
