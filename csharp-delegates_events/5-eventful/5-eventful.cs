@@ -18,13 +18,17 @@ public enum Modifier
 }
 
 /// <summary>
-/// Delegate to calculate Health
+/// Delegate to calculate Health.
 /// </summary>
+/// <param name="amount"></param>
 public delegate void CalculateHealth(float amount);
 
 /// <summary>
-/// Delegate to mofifier baseValue
+/// Delegate to mofifier baseValue.
 /// </summary>
+/// <param name="baseValue"></param>
+/// <param name="modifier"></param>
+/// <returns></returns>
 public delegate float CalculateModifier(float baseValue, Modifier modifier);
 
 /// <summary>
@@ -40,6 +44,7 @@ public class CurrentHPArgs : EventArgs
     /// <summary>
     /// constructor to set properties.
     /// </summary>
+    /// <param name="newHp"></param>
     public CurrentHPArgs(float newHp)
     {
         this.currentHp = newHp;
@@ -68,7 +73,11 @@ public class Player
     /// </summary>
     public event EventHandler<CurrentHPArgs> HPCheck;
 
-    /// <summary>constructor to initialize properties.</summary>
+    /// <summary>
+    /// constructor to initialize properties.
+    /// </summary>
+    /// <param name="name"></param>
+    /// <param name="maxHp"></param>
     public Player(string name = "Player", float maxHp = 100f)
     {
         this.name = name;
@@ -84,7 +93,7 @@ public class Player
         this.HPCheck += CheckStatus;
     }
 
-    /// private method to check status of player.
+    /* private method to check status of player. */
     private void CheckStatus(object sender, CurrentHPArgs e)
     {
         if (e.currentHp == this.maxHp)
@@ -101,7 +110,7 @@ public class Player
         Console.WriteLine(this.status);
     }
 
-    /// Private method to warn if player health is low.
+    /* Private method to warn if player health is low. */
     private void HPValueWarning(object sender, CurrentHPArgs e)
     {
         ConsoleColor backgroundColor = Console.BackgroundColor;
@@ -122,7 +131,7 @@ public class Player
         Console.ForegroundColor = foregroundColor;
     }
 
-    /// private method to check status of player.
+    /* private method to check status of player. */
     private void OnCheckStatus(CurrentHPArgs e)
     {
         if (e.currentHp <= (this.maxHp / 4f))
@@ -138,7 +147,9 @@ public class Player
         HPCheck?.Invoke(this, args);
     }
 
-    /// <summary>Method to print health of player.</summary>
+    /// <summary>
+    /// Method to print health of player.
+    /// </summary>
     public void PrintHealth()
     {
         Console.WriteLine("{0} has {1} / {2} health", this.name, this.hp, this.maxHp);
@@ -147,6 +158,7 @@ public class Player
     /// <summary>
     /// Print damage. If damage is negative, the Player takes 0 damage.
     /// </summary>
+    /// <param name="damage"></param>
     public void TakeDamage(float damage)
     {
         float newHp = this.hp;
@@ -165,6 +177,7 @@ public class Player
     /// <summary>
     /// Print heal. If heal is negative, the Player takes 0 heal.
     /// </summary>
+    /// <param name="heal"></param>
     public void HealDamage(float heal)
     {
         float newHp = this.hp;
@@ -183,6 +196,7 @@ public class Player
     /// <summary>
     /// Validate the new value of hp.
     /// </summary>
+    /// <param name="newHp"></param>
     public void ValidateHP(float newHp)
     {
         if (newHp < 0)
@@ -197,8 +211,11 @@ public class Player
     }
 
     /// <summary>
-    /// Apply the modifier to the baseValue
+    /// Apply the modifier to the baseValue.
     /// </summary>
+    /// <param name="baseValue"></param>
+    /// <param name="modifier"></param>
+    /// <returns></returns>
     public float ApplyModifier(float baseValue, Modifier modifier)
     {
         if (modifier == Modifier.Weak)
