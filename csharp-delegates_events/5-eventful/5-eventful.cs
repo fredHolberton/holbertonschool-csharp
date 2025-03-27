@@ -96,15 +96,25 @@ public class Player
     private void CheckStatus(object sender, CurrentHPArgs e)
     {
         if (e.currentHp == this.maxHp)
+        {
             this.status = this.name + " is in perfect health!";
+        }        
         else if ((e.currentHp >= this.maxHp / 2f) && e.currentHp < this.maxHp)
+        {   
             this.status = this.name + " is doing well!";
+        }
         else if ((e.currentHp >= this.maxHp / 4f) && (e.currentHp < this.maxHp / 2f))
+        {
             this.status = this.name + " isn't doing too great...";
+        }   
         else if ((e.currentHp > 0f) && (e.currentHp < this.maxHp / 4f))
+        {
             this.status = this.name + " needs help!";
+        }      
         else
+        {
             this.status = this.name + " is knocked out!";
+        }
 
         Console.WriteLine(this.status);
     }
@@ -199,11 +209,17 @@ public class Player
     public void ValidateHP(float newHp)
     {
         if (newHp < 0)
+        {
             this.hp = 0;
+        }   
         else if (newHp > this.maxHp)
+        {
             this.hp = this.maxHp;
+        }    
         else
+        {
             this.hp = newHp;
+        }      
 
         CurrentHPArgs args = new CurrentHPArgs(this.hp);
         OnCheckStatus(args);
@@ -218,11 +234,17 @@ public class Player
     public float ApplyModifier(float baseValue, Modifier modifier)
     {
         if (modifier == Modifier.Weak)
+        {
             return baseValue / 2f;
+        }  
         else if (modifier == Modifier.Base)
+        {
             return baseValue; 
+        }     
         else
+        {
             return baseValue * 1.5f;
+        }        
     }
 }
 
