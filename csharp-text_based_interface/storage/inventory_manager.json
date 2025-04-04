@@ -1,0 +1,17 @@
+{
+  "User.": {
+    "id": null,
+    "date_created": "0001-01-01T00:00:00",
+    "date_updated": "0001-01-01T00:00:00"
+  },
+  "Item.": {
+    "id": null,
+    "date_created": "0001-01-01T00:00:00",
+    "date_updated": "0001-01-01T00:00:00"
+  },
+  "Inventory.": {
+    "id": null,
+    "date_created": "0001-01-01T00:00:00",
+    "date_updated": "0001-01-01T00:00:00"
+  }
+}
