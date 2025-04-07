@@ -1,0 +1,8 @@
+is_global = true
+build_property.RootNamespace = InventoryManager
+build_property.ProjectDir = C:\Fred\Holberton\holbertonschool-csharp\csharp-text_based_interface\InventoryManager\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.CsWinRTUseWindowsUIXamlProjections = false
+build_property.EffectiveAnalysisLevelStyle = 
+build_property.EnableCodeStyleSeverity = 

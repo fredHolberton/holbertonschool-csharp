@@ -1,5 +1,4 @@
 using System;
-using InventoryLibrary;
 
 namespace InventoryLibrary
 {
@@ -25,6 +24,12 @@ namespace InventoryLibrary
                 throw new ArgumentException("Quantity can not be negative");
             }
             this.quantity = quantity;
+        }
+
+        /// <summary>Override that prints the Inventory object’s attributes to stdout</summary>
+        public override string ToString()
+        {
+            return $"Inventory:\n  User ID: {this.user_id}\n  Item ID: {this.item_id}\n  Quantity: {this.quantity}\n  ID: {base.id}";
         }
     }
 }

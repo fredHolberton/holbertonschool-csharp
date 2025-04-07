@@ -1,0 +1,12 @@
+C:\Fred\Holberton\holbertonschool-csharp\csharp-text_based_interface\InventoryLibrary\obj\Debug\netstandard2.1\InventoryLibrary.csproj.AssemblyReference.cache
+C:\Fred\Holberton\holbertonschool-csharp\csharp-text_based_interface\InventoryLibrary\obj\Debug\netstandard2.1\InventoryLibrary.GeneratedMSBuildEditorConfig.editorconfig
+C:\Fred\Holberton\holbertonschool-csharp\csharp-text_based_interface\InventoryLibrary\obj\Debug\netstandard2.1\InventoryLibrary.AssemblyInfoInputs.cache
+C:\Fred\Holberton\holbertonschool-csharp\csharp-text_based_interface\InventoryLibrary\obj\Debug\netstandard2.1\InventoryLibrary.AssemblyInfo.cs
+C:\Fred\Holberton\holbertonschool-csharp\csharp-text_based_interface\InventoryLibrary\obj\Debug\netstandard2.1\InventoryLibrary.csproj.CoreCompileInputs.cache
+C:\Fred\Holberton\holbertonschool-csharp\csharp-text_based_interface\InventoryLibrary\bin\Debug\netstandard2.1\InventoryLibrary.xml
+C:\Fred\Holberton\holbertonschool-csharp\csharp-text_based_interface\InventoryLibrary\bin\Debug\netstandard2.1\InventoryLibrary.deps.json
+C:\Fred\Holberton\holbertonschool-csharp\csharp-text_based_interface\InventoryLibrary\bin\Debug\netstandard2.1\InventoryLibrary.dll
+C:\Fred\Holberton\holbertonschool-csharp\csharp-text_based_interface\InventoryLibrary\bin\Debug\netstandard2.1\InventoryLibrary.pdb
+C:\Fred\Holberton\holbertonschool-csharp\csharp-text_based_interface\InventoryLibrary\obj\Debug\netstandard2.1\InventoryLibrary.dll
+C:\Fred\Holberton\holbertonschool-csharp\csharp-text_based_interface\InventoryLibrary\obj\Debug\netstandard2.1\InventoryLibrary.pdb
+C:\Fred\Holberton\holbertonschool-csharp\csharp-text_based_interface\InventoryLibrary\obj\Debug\netstandard2.1\InventoryLibrary.sourcelink.json

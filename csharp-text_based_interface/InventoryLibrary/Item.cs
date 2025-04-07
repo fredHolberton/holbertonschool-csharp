@@ -27,7 +27,15 @@ namespace InventoryLibrary
             this.name = name;
             this.description = description;
             this.price = price;
-            this.tags = tags;
+            if (tags != null)
+                this.tags = tags;
         }
+
+        /// <summary>Override that prints the Item object’s attributes to stdout</summary>
+        public override string ToString()
+        {
+            return $"Item: {this.name}\n  Description: {this.description}\n  Price: {this.price}\n  ID: {base.id}";
+        }
+
     }
 }

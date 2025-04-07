@@ -1,17 +1,34 @@
 {
-  "User.": {
-    "id": null,
-    "date_created": "0001-01-01T00:00:00",
-    "date_updated": "0001-01-01T00:00:00"
+  "Item.b6ba019d-0ae1-4e0d-ba3d-02b18dbccc17": {
+    "name": "Laptop",
+    "description": "High-end gaming laptop",
+    "price": 1500.98999,
+    "tags": [
+      "Electronics",
+      "Gaming"
+    ],
+    "id": "b6ba019d-0ae1-4e0d-ba3d-02b18dbccc17",
+    "date_created": "2025-04-07T10:41:15.5668231Z",
+    "date_updated": "2025-04-07T10:41:15.5668241Z"
   },
-  "Item.": {
-    "id": null,
-    "date_created": "0001-01-01T00:00:00",
-    "date_updated": "0001-01-01T00:00:00"
+  "Inventory.342c9678-d2c2-49d3-86b7-20db899015ee": {
+    "user_id": "50b95fdc-f88b-492b-b4ee-62b043a49345",
+    "item_id": "b6ba019d-0ae1-4e0d-ba3d-02b18dbccc17",
+    "quantity": 10,
+    "id": "342c9678-d2c2-49d3-86b7-20db899015ee",
+    "date_created": "2025-04-07T10:41:15.5669685Z",
+    "date_updated": "2025-04-07T10:41:15.5669688Z"
   },
-  "Inventory.": {
-    "id": null,
-    "date_created": "0001-01-01T00:00:00",
-    "date_updated": "0001-01-01T00:00:00"
+  "User.9c07fc42-2be4-408d-9503-6acb877a43d1": {
+    "name": "John Do",
+    "id": "9c07fc42-2be4-408d-9503-6acb877a43d1",
+    "date_created": "2025-04-07T15:04:07.7398501Z",
+    "date_updated": "2025-04-07T15:04:07.7398608Z"
+  },
+  "User.3d7ec3e6-4fc2-4de5-a138-3426b263e83d": {
+    "name": "Paul McHarney",
+    "id": "3d7ec3e6-4fc2-4de5-a138-3426b263e83d",
+    "date_created": "2025-04-07T15:21:32.0238296Z",
+    "date_updated": "2025-04-07T15:21:32.0238389Z"
   }
 }

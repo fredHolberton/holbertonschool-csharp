@@ -1,5 +1,4 @@
 using System;
-using InventoryLibrary;
 
 namespace InventoryLibrary
 {
@@ -16,6 +15,12 @@ namespace InventoryLibrary
                 throw new ArgumentException("Name is required.", nameof(name));
 
             this.name = name;           
+        }
+
+        /// <summary>Override that prints the User object’s attributes to stdout</summary>
+        public override string ToString()
+        {
+            return $"User: {this.name} (id: {base.id})";
         }
     }
 }
