@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using InventoryLibrary;
 
 namespace InventoryLibrary
 {
@@ -17,11 +16,14 @@ namespace InventoryLibrary
         public float price { get; set; }
 
         /// <summary>Gets or sets a list of tags of an Item. Optional.</summary>
-        public List<string> tags { get; set; }
+        public List<string> tags { get; set; } = new List<string>();
 
         /// <summary>Constructor of an Item to value properties.</summary>
         public Item(string name, string description = "", float price = 0f, List<string> tags = null)
         {
+            if (string.IsNullOrWhiteSpace(name))
+                throw new ArgumentException("Name is required.", nameof(name));
+
             this.name = name;
             this.description = description;
             this.price = price;

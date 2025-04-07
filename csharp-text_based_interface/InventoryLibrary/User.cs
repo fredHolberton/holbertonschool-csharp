@@ -10,9 +10,12 @@ namespace InventoryLibrary
         public string name { get; set; }
 
         /// <summary>Constructor of a User to value property.</summary>
-        public User(string name = "John Do")
+        public User(string name)
         {
-            this.name = name;
+            if (string.IsNullOrWhiteSpace(name))
+                throw new ArgumentException("Name is required.", nameof(name));
+
+            this.name = name;           
         }
     }
 }

@@ -7,20 +7,24 @@ namespace InventoryLibrary
     public class Inventory : BaseClass
     {
         /// <summary>Gets or sets the User of the Inventory. Required.</summary>
-        public User user_id { get; set; } = new User("John Do");
+        public string user_id { get; set; }
         
         /// <summary>Gets or sets the Item of the Inventory. Required.</summary>
-        public Item item_id { get; set; } = new Item("My Item");
+        public string item_id { get; set; }
         
         /// <summary>Gets or sets the quantity of items in the Inventory. Required.</summary>
         public int quantity { get; set; }
 
         /// <summary>Constructor of an Inventory to value properties.</summary> 
-        public Inventory(User user, Item item, int quantity = 1)
+        public Inventory(string user_id, string item_id, int quantity = 1)
         {
-            this.user_id = user;
-            this.item_id = item;
-            this.quantity = quantity >= 0 ? quantity : 1;
+            this.user_id = user_id;
+            this.item_id = item_id;
+            if (quantity < 0)
+            {
+                throw new ArgumentException("Quantity can not be negative");
+            }
+            this.quantity = quantity;
         }
     }
 }
