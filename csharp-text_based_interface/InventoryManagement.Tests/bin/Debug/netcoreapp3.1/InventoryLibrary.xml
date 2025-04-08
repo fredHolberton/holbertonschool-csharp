@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>InventoryLibrary</name>
+    </assembly>
+    <members>
+        <member name="T:InventoryLibrary.BaseClass">
+            <summary>This is an public class that all other classes will inherit from.</summary>
+        </member>
+        <member name="P:InventoryLibrary.BaseClass.id">
+            <summary>Gets or sets the id of the object.</summary>
+        </member>
+        <member name="P:InventoryLibrary.BaseClass.date_created">
+            <summary>Gets or sets the created date of the object.</summary>
+        </member>
+        <member name="P:InventoryLibrary.BaseClass.date_updated">
+            <summary>Gets or sets the updated date of the object.</summary>
+        </member>
+        <member name="M:InventoryLibrary.BaseClass.#ctor">
+            <summary>Constructor to init the BaseClass properties.</summary>
+        </member>
+        <member name="T:InventoryLibrary.Inventory">
+            <summary>Public class that inherits from BaseClass to manage Inventory.</summary>
+        </member>
+        <member name="P:InventoryLibrary.Inventory.user_id">
+            <summary>Gets or sets the User of the Inventory. Required.</summary>
+        </member>
+        <member name="P:InventoryLibrary.Inventory.item_id">
+            <summary>Gets or sets the Item of the Inventory. Required.</summary>
+        </member>
+        <member name="P:InventoryLibrary.Inventory.quantity">
+            <summary>Gets or sets the quantity of items in the Inventory. Required.</summary>
+        </member>
+        <member name="M:InventoryLibrary.Inventory.#ctor(System.String,System.String,System.Int32)">
+            <summary>Constructor of an Inventory to value properties.</summary> 
+        </member>
+        <member name="M:InventoryLibrary.Inventory.ToString">
+            <summary>Override that prints the Inventory object’s attributes to stdout</summary>
+        </member>
+        <member name="T:InventoryLibrary.Item">
+            <summary>Public class that inherits from BaseClass to manage items.</summary>
+        </member>
+        <member name="P:InventoryLibrary.Item.name">
+            <summary>Gets or sets the name of an Item. Required.</summary>
+        </member>
+        <member name="P:InventoryLibrary.Item.description">
+            <summary>Gets or sets the description of an Item. Optional.</summary>
+        </member>
+        <member name="P:InventoryLibrary.Item.price">
+            <summary>Gets or sets the price of an Item. Optional.</summary>
+        </member>
+        <member name="P:InventoryLibrary.Item.tags">
+            <summary>Gets or sets a list of tags of an Item. Optional.</summary>
+        </member>
+        <member name="M:InventoryLibrary.Item.#ctor(System.String,System.String,System.Single,System.Collections.Generic.List{System.String})">
+            <summary>Constructor of an Item to value properties.</summary>
+        </member>
+        <member name="M:InventoryLibrary.Item.ToString">
+            <summary>Override that prints the Item object’s attributes to stdout</summary>
+        </member>
+        <member name="T:InventoryLibrary.JSONStorage">
+            <summary>Public class to manage storage in json format.</summary>
+        </member>
+        <member name="P:InventoryLibrary.JSONStorage.objects">
+            <summary>Gets or sets a dictionary of objects.</summary>
+        </member>
+        <member name="M:InventoryLibrary.JSONStorage.#ctor">
+            <summary>Constructor to set property.</summary>
+        </member>
+        <member name="M:InventoryLibrary.JSONStorage.All">
+            <summary>Return all objects of the dictionary.</summary>
+        </member>
+        <member name="M:InventoryLibrary.JSONStorage.New(System.Object)">
+            <summary>Add a new object in dictionary.</summary>
+        </member>
+        <member name="M:InventoryLibrary.JSONStorage.Save">
+            <summary>Save the inventory in a serialized Json file.</summary>
+        </member>
+        <member name="M:InventoryLibrary.JSONStorage.Load">
+            <summary>Deserializes the JSON file and loads the objects into the dictionary.</summary>
+        </member>
+        <member name="T:InventoryLibrary.User">
+            <summary>Public class that inherits from BaseClass to manage Users.</summary>
+        </member>
+        <member name="P:InventoryLibrary.User.name">
+            <summary>Gets or sets the name of a User. Required.</summary>
+        </member>
+        <member name="M:InventoryLibrary.User.#ctor(System.String)">
+            <summary>Constructor of a User to value property.</summary>
+        </member>
+        <member name="M:InventoryLibrary.User.ToString">
+            <summary>Override that prints the User object’s attributes to stdout</summary>
+        </member>
+    </members>
+</doc>

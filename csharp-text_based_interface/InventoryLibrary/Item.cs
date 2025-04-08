@@ -26,7 +26,7 @@ namespace InventoryLibrary
 
             this.name = name;
             this.description = description;
-            this.price = price;
+            this.price = (float)Math.Round(price, 2);
             if (tags != null)
                 this.tags = tags;
         }

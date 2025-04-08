@@ -11,7 +11,7 @@ namespace InventoryLibrary
     public class JSONStorage
     {
         /* Name of the storage directory */
-        private const string storageFolder = "../storage";
+        private const string storageFolder = "storage";
         /* Name of the storage file name */
         private const string storageFileName = "inventory_manager.json";
         
